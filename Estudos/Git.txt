@@ -1,0 +1,20 @@
+
+git clone <repo>         # Clonar projeto do GitHub
+git status               # Verificar o que mudou
+git add .                # Adicionar tudo para commit
+git commit -m "Mensagem" # Criar commit com mensagem
+git push origin main     (Enviar para o GitHub)
+
+git diff (mostra oque alterou)
+git restore [nome do arquivo] (voltar atras)
+
+criar outras ramificações:
+git branch (mostra a branch)
+git checkout -b [nome da branch] (muda de branch) (-b serve para criar uma nova branch)
+
+git marge [nome da branch] (mesclar as branch)
+
+
+git remote add origin https://github.com/mauriciolacerdan/Estudos.git (adicionar repositorio remoto)
+
+git push origin [nome da branch} (mandar branch para o github)
