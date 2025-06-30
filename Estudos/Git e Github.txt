@@ -1,6 +1,9 @@
 Git:serve para criar ramificaões do codigo salvando o passado e ajudando a trabalhar em equipe
 Github:plataforma para hospedar o codigo e compartilhar
 
+Repositorio: com (git init) a pasta vira repositorio: onde histórico completo de um projeto é armazenado, incluindo todos os arquivos e suas versões.
+commit: significa registrar uma mudança e dentro do commit tem arquivos alterados
+
 
 git clone <repo>         # Clonar projeto do GitHub
 git status               # Verificar o que mudou
