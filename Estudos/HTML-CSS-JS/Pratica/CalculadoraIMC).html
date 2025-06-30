@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio2</title>
+</head>
+<body>
+    
+    <form onsubmit="return calcular(event)"> <!--ação do botao que pega o o formulario[event]-->
+        <!--formulario para peso e altura onde o input text cria uma caixa de digitação de texto-->
+        <label>Digite seu peso:</label> <br>
+        <input type="text" name="peso" id="peso" placeholder="Exemplo 65"/> <br> <br>
+
+        <label>Digite sua altura:</label> <br>
+        <input type="text" name="altura" id="altura" placeholder="Exemplo 1.90"/> <br> <br>
+
+        <!--botao de submit-->
+        <input type="submit" value="Calcular IMC">
+    </form>
+
+    <div id="resultado"></div>
+    <script src="Calculadoraimc.js"></script>
+</body>
+</html>

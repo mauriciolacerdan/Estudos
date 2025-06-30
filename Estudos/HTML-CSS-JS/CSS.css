@@ -1,0 +1,45 @@
+body {
+    background-image: linear-gradient(to right, #3CA6A6, #026773, #024959); /*degrade de cores, em vez de colocar color no backgroud é so colcar image e o linear gradient e definir direção(tem como colocar em graus) e cores*/
+
+    font: normal 200 20px Arial;/*shorthand coloca todos os codigos acima em um codigo para simplificar(ordem style > weight > size > family)*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /*fonte(tem como colocar em um testo separado)(tem como copiar o link da fonte do google fontes)*/
+    font-weight: 200; /*peso da fonte(so funciona com algumas fontes)*/
+    font-style: normal; /*estilo da fonte(so funciona com algumas fontes)*/
+    font-size: 20px; /*tamanho do texto*/
+    text-align: center; /*alinhamento do texto(nao alinhar com html)*/
+}
+
+h1, h3 /*altera todos os h1 e h3*/{
+    color: #e72f4f;
+    background-color: #1841e2;
+
+     /*box-level*/
+     /*padding,margin,outline("bordas"), box-level:pula a linha, inline-level:da um espaço* (aparece no devtools do chome)*/
+     height: 300px; /*altura da caixa/objeto*/
+     width: 300px; /*largura da caixa/objeto*/
+
+     /*ordem top>right>botton>left (shortland) (apenas 1 valor vai ser para as 4 bordas*/
+     border: 10px solid aqua; /*borda personalisada: largura,style e color da borda*/
+     padding: 10px 10px 10px 10px;
+     margin: 20px auto 40px auto;
+     outline: 5px dashed salmon;
+     box-shadow: 5px 3px 8px rgba(0, 0, 0, 0.644); /*sombra na box(tem como colocar sobra pelo devtools)*/
+     border-radius: 40px 20px 40px 20px; /*coloca borda na box(cada px é um lado)(pode usar porcentagem)(tem como colocar borda personalisada img)*/
+}
+
+a /*altera todos os a*/{
+    /*inline-level*/
+    border-width: 10px;
+    border-style: solid;
+    border-color: red;
+    padding: 10px;
+}
+
+p#principal /*continuação do indentificador linha60*/ {
+    text-align: end;
+    background-color: rgb(243, 142, 10); }
+
+.outro { /*continuação no identificador linha61*/
+    background-color: aqua;
+    font-size: 30px;
+}

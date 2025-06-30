@@ -1,3 +1,6 @@
+Git:serve para criar ramificaões do codigo salvando o passado e ajudando a trabalhar em equipe
+Github:plataforma para hospedar o codigo e compartilhar
+
 
 git clone <repo>         # Clonar projeto do GitHub
 git status               # Verificar o que mudou
