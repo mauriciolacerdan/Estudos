@@ -1,0 +1,52 @@
+body {
+  background-image: linear-gradient(
+    to right,
+    #3ca6a6,
+    #026773,
+    #024959
+  ); /*Degrade de cores. [linear gradient] define direção (pode colocar em graus). colocar cores na ordem que deseja*/
+
+  /*Estilos da Fonte*/
+  font: normal 200 20px Arial; /*Simplificar. (ordem: style > weight > size > family...)*/
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; /*Fontes. (na falta de uma no navegador vai carregar a proxima)*/
+  font-style: normal; /*Estilo da fonte.*/
+  font-size: 20px; /*tamanho do texto*/
+  text-align: center; /*alinhamento do texto*/
+}
+
+h1, h3 /*altera todos os h1 e h3*/ {
+  color: #e72f4f; /*Cor do texto*/
+  background-color: #1841e2;
+
+  /*box-level: padding,margin,outline (box-level:pula a linha) (ver pelo deevtools)*/
+  height: 300px; /*altura da caixa*/
+  width: 300px; /*largura da caixa*/
+  /*ordem top>right>botton>left (1 valor define as 4 bordas)(pode usar porcentagens)*/
+  border: 10px solid aqua; /*borda personalisada: largura>style>cor*/
+  padding: 10px 10px 10px 10px; /*tamanho da box(cada px é um lado)*/
+  margin: 20px auto 40px auto;
+  outline: 5px dashed salmon;
+  box-shadow: 5px 3px 8px rgba(0, 0, 0, 0.644); /*Sombra. (ajustar pelo devtools)*/
+  border-radius: 40px 20px 40px 20px; /*Borda (cada px é um lado)(tem como colocar borda personalisada img)*/
+}
+
+a /*altera todos os a*/ {
+  /*inline-level (inline-level da um espaço diferente do boxlevel)*/
+  border-width: 10px;
+  border-style: solid;
+  border-color: red;
+  padding: 10px;
+}
+
+p#principal /*continuação do indentificador linha60*/ {
+  text-align: end;
+  background-color: rgb(243, 142, 10);
+}
+
+.outro {
+  /*continuação no identificador linha61*/
+  background-color: aqua;
+  font-size: 30px;
+}
+
+/*Tem mais de CSS no HTML*/

@@ -1,0 +1,11 @@
+# Node
+node_modules/
+# Expo
+.expo/
+# Ambiente
+.env
+# Cache
+.expo/web/cache/
+# Logs e temporários
+*.log
+*.tmp

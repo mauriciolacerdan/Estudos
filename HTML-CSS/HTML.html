@@ -1,0 +1,152 @@
+<!DOCTYPE html> <!--[! + enter] cria estrutura-->
+<html lang="pt-br"> <!--Idioma do site-->
+<head> <!--Config do site-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Escala do site-->
+    <link rel="shortcut icon" href="Mídias/favicon.ico" type="image/x-icon"><!--favicon(comando:[link]>[favicon])-->
+    <title>Nome Sitw</title> <!--Nome do site-->
+    <link rel="stylesheet" href="CSS.css"> <!--CSS EXTERNO. ([link]>[css]) Define cor e estilo para inumeros script de forma pratica-->
+    <style> /*CSS INTERNO. define a cor e estilo so desse script (pode usar no [body])*/
+       p#principal:hover {background-color: black;} /* :Pseudo clase. define estado a frase exemplo houver(quando passar mause em cima da p#principal fica preto*/
+       a:visited {color: beige;} /*[visited](pseudo classe) (quando visitar os a(link) vai ficar branco*/
+       a:active {color: yellow;} /*[active](pseudo classe) (quando clica ativa o amarelo)*/
+       a::after {content: '[ola]'} /* ::(pseudo elemento) (adicionou uma palavra depois de todos os link(a)*/
+    </style>
+</head>
+<body> <!--Corpo do site-->
+    <!-- !! usar grouping tags e semantic tags para organizar o codigo e o google entender a semantica pg9e10 https://github.com/gustavoguanabara/html-css/blob/master/aulas-pdf/16%20-%20Modelo%20de%20Caixas.pdf -->
+
+    <!--Titulos. (Tem hierarquia)-->
+    <h1>titulo</h1>
+    <h2>medio</h2>
+    <h3>subtitulo</h3>
+
+    <p>isso é uma frase <!--Frases-->
+        <strong>frase em destaque</strong>
+        <em>frase em ênfase</em>
+        <mark>frase marcada</mark>
+        <small>frase pequena</small>
+        <del>frase excluida</del>
+        <ins>frase sublinada</ins>
+        <sup>frase em cima</sup>
+        <sub>frase em baixo</sub>
+        <code>frase mono espaçada</code>
+        <q>citação</q>
+        <abbr title="abreviação">abr</abbr>
+    </p>
+    <p style="color: #1233b4;">texto</p> <!--(CSS) [style] define a cor, estilo ou alinha  textos (colocar # e o codigo da cor)-->
+    &real; &#x1f596; 🚗 <!--simbolos e emoji-->
+
+    <br> <!--Quebra de linhas. (pode usar no meio do texto)-->
+
+    <ol type="5"> listas <!--Listas. (opção de colocar lista dentro de listas) ([type] define estilo)-->
+        <li>item de lista</li> 
+        <li>item de lista</li>
+        <li>item de lista</li>
+    </ol>
+    <ul>lista nao ordenada <!--Lista nao ordenada.-->
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul> <br>
+
+    <table> <!--Tabela-->
+     <tr> <!--[tr]define linhas da tabela-->
+      <th>ordem</th> <!--[th]cabeçalho da tabela-->
+      <th>serviç</th>
+      <th>preço</th>
+     </tr>
+     <tr>
+      <td>1</td><!--[td]dados dentro da tabela-->
+      <td>troca de vidro</td>
+      <td>R$800</td>
+     </tr>
+    </table> <br>
+
+    <form> <!--Formularios-->
+        
+        <!--formulario de escrever-->
+        <label>Primeiro nome</label> <!--[label]define o nome do campo/titulo (pode ter formulario sem o label)-->
+        <input type="nome" name="pnome" placeholder="seu nome" required ><!--[input]define o campo de texto (type define o tipo de campo) ([placeholder]da uma dica de oque preencher) ([required]define o preenchimento obrigatorio)--> <br>
+
+        <!--formulario de marcar (radio[type] radio permite marcar apenas uma opção)-->
+        <label>
+            <input type="radio" name="sexo" value="masculino"> sou homem <!--[input]define o campo radio, [type] define que é um radio, [name] define o nome do campo, [value] define o valor do campo(é enviado para o banco de dados), (sou homem escrito depois da dica de qual escolher)-->
+        </label>
+        <label>
+            <input type="radio" name="sexo" value="feminino" checked> sou mulher <!--[cheked] marca opção altomatico-->
+        </label><br>
+
+        <!--formulario para selecionar itens-->
+        <label for="sua idade"> Sua escolaridade </label> <!--[for] e [id] cria vinculo do[label] com [select]--> 
+        <select name="" id="sua idade"> <!--formulario para selecionar opções-->
+            <option selected disabled value=""> selecione</option> <!--[selected disabled] desabilita opção de seleção dessa opção-->
+            <option value="10+">10+</option> <!--[option]coloca opção para escolher-->
+            <option value="21+">21+</option>
+        </select> <br>
+
+        <!--formulario de inumeras seleções-->
+        <input type="checkbox" id="conhecimento" name="conhecimento" value="programação"> <!--[type]=[checkbox] define que é uma caixa de seleções-->
+        <label for="conhecimento">programação</label> <br> <!--titulo da opção do checkbox-->
+
+        <input type="checkbox" id="conhecimento" name="conhecimento" value="direito">
+        <label for="conhecimento">direito</label> <br>
+
+        <!--formulario para Email-->
+        <label for="Email">Seu email</label>
+        <input type="email" name="email" id="Email"> <!--[type]=[email] define que é uma caixa de emails--> <br>
+
+        <!--formulario de marcar date-->
+        <label for="Data">Datas</label>
+        <input type="datetime-local" name="Datas" id="Data"> <!--[type]=[date]caixa de definição de data. [type]=[datetime-local] caixa de definição de horas e data --> <br>
+
+        <!--botão de enviar formularios-->
+        <input type="submit" value="cadastrar"> <!--[type]=[submit] define o botao de enviar o formulario (value define o texto do botao) e o [onsubmit] dentro do form é a acao que o botao faz--> 
+    </form> <br>
+
+    <datalist open> <!--Pastas. ([open]abre automatico)-->
+        <summary>pasta</summary> <!--Nome da pasta-->
+        <p>item dentro da pasta</p> <!--item dentro da pasta-->
+        <!--tem como colocar datalist dentro de um formulario de escrever-->
+    </datalist>
+
+    <button>botao</button><!--botão-->
+
+    <img src="Mídias/irina-blok-pq.jpg" alt="img.jpg"> <!--Imagem. (analisar:tamanho,qualidade,formato e direito de uso)(pode colocar dentro de pastas)--> <br>
+
+    <picture> <!--[picture] usado para mais de uma imagem (Mudar img conforme o tamanho de tela)-->
+        <source media="(max-width: 500px)" srcset="imagens/p.png" type="image/png">
+        <source media="(max-width: 800px)" srcset="imagens/m.png" type="image/png">
+        <img src="imagens/g.png" alt="imagem flexivel">
+        <!--vai carregar a foto g mas se for menos que 800px carrega a foto m e menos que 500 carrega p(a ordem dos comandos tem que ser seguida)-->
+    </picture> <br>
+
+    <a href="https://www.youtube.com/?app=desktop" target="_blank" >link</a> <!--[a] Link ou arquivo.(usado para ir para outro site proprio ou para baixar arquivos) (target="_blank": abrir o link em pagina nova / rel=outras funcoes)--> <br>
+
+    <video poster="Mídias/p.png" src="midias/video.mp4" type="video/mp4" width="500" controls loop ></video> <!--Video. (cuidado com o peso!) ([poster]capa do video) ([src]endereço do video) ([type] define que é um video mp4) ([width] determina o tamanho CSS) ([controls] controles do video (tem que ter)) ([loop]dar loop)-->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/OzUnqQk4eOg?si=LlOcbmqsyZWvNQCU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> <!--Video youtube ou vimeo. (Site fica mais leve)--> <br>
+
+    <audio src="midias/musica.mp3" controls></audio> <!--audio(nem todo navegador aceita mp3 entao da pra colocar varios de outra forma) ([src]local do audio) --> <br>
+    
+    <p id="principal">titulo 2</p> <!--[id=""]identificador. Para fazer altereções so nele (html:id css:#)-->
+    <p class="outro">titulo 3</p> <!--[class=""]identificador. para mais de um texto [html:class e css:.] (pode colocar mais de uma classe no texto) (oque for da classe outro vai ser configurado (continuação no css))-->
+
+
+
+<br><br><br><br><p>agora é JavaScript:</p><br><br><br><br><br><br>
+
+
+    <!--Java script-->
+   <h4 id="area"> bem vindo </h4>
+
+   <button onclick="abrir()">Acessar</button> <!--quando clicar no [button(cria botão)] vai fazer a ação[onclick] que vai acessar a função [entrar()]  (continuação no js)-->
+
+   
+   <!--HTTP (continuação no js)-->
+   <ul id="app"> 
+   </ul>
+
+
+   <script src="C:\Users\mauri\Desktop\Projetos\Estudos\Java Script (HTML)\JavaScript.js"></script> <!--abre o js dentro do html-->
+</body>
+</html>
