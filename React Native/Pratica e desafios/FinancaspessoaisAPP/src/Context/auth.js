@@ -1,7 +1,6 @@
 import React, { createContext, useState } from "react";
 import {useNavigation} from '@react-navigation/native';
 import api from '../Http/Api'
-
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
