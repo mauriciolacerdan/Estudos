@@ -1,11 +1,16 @@
 ========== GITHUB ==========
+
 GitHub é uma plataforma que organiza e compartilha código usando Git para controlar versões.
 Em resumo, o GitHub facilita versionar, organizar e trabalhar em equipe em projetos de software.
+
+Pull Requests:
+Permite propor alterações em projetos, revisar código e colaborar antes de integrar ao branch principal.
+Fluxo básico: fork/clonar → criar branch → commit → push → abrir pull request → revisão → merge.
 
 
 
 ========== GIT ==========
-Serve para criar ramificaões do codigo salvando o passado e ajudando a trabalhar em equipe
+Serve para criar ramificações do código, salvando o histórico e facilitando o trabalho em equipe.
 https://git-scm.com/downloads
 
 
@@ -30,70 +35,99 @@ git init  (Transforma pasta virar repositorio)
 
 
 ---------- Comandos Básicos: ----------
-git gc (otimiza e limpa o repositorio git dando mais desempenho)
+git gc (otimiza e limpa o repositório git dando mais desempenho)
+
+git add .  (Prepara arquivos para o commit)
+git commit -m "Mensagem"  (Cria um commit com mensagem)
+git log  (Mostra histórico de commits)
 
 git status  (Verifica estado dos arquivos)
-
-git add .  (Prepara arquivos para o commit) (commit:salva as alterações feitas cria um ponto de historico no projeto)
-
+git add .  (Prepara arquivos para o commit)
 git commit -m "Mensagem"  (Cria um commit com mensagem)
-
 git log  (Mostra histórico de commits)
 git checkout -- arquivo.txt  (Desfaz alterações locais)
 git reset --hard HEAD  (Desfaz todos os commits locais não enviados)
+git revert <hash>  (Desfaz um commit já enviado, criando um novo commit de reversão)
+git stash  (Guarda alterações temporariamente)
+git stash pop  (Recupera alterações guardadas)
+git rm --cached arquivo  (Remove arquivo do controle do git, mas mantém localmente)
 
-
-Tags(comentario):
-git tag v1.0  (Cria uma tag)
-git tag -a v1.0 -m "Versão 1.0 estável"  (Cria tag que mostra autor, data...)
 
 git tag (mostra tags)
-git show v1.0 (mostra detalhes de uma tag)
+
+Tags (marcação de versão):
+git tag v1.0  (Cria uma tag)
+git tag -a v1.0 -m "Versão 1.0 estável"  (Cria tag anotada com autor, data, mensagem)
+git tag  (Mostra todas as tags)
+git show v1.0  (Mostra detalhes de uma tag)
 git push origin v1.0  (Envia a tag)
 
 
-Outros:
 git shortlog (mostra todos os commits ja feito)
 git reflog (mostra todos os detalhes precisos feito no repositorio)
 git diff (mostra a diferença do codigo atual para o codigo do repositorio)
 git diff HEAD: nomearquivo.js (diferença de um arquivo específico tem que colocar pasta se tiver)
 
+Outros:
+git shortlog (mostra todos os commits já feitos)
+git reflog (mostra todos os detalhes precisos feitos no repositório)
+git diff (mostra a diferença do código atual para o código do repositório)
+git diff HEAD: nomearquivo.js (diferença de um arquivo específico; coloque o caminho se necessário)
+
 
 -------------------------------------------------------------------
 
 
-Branches: (linha paralela de desenvolvimento do mesmo codigo)
-git branch  (Lista as branches)
-git branch nomebranch  (Cria nova branch(a partir da que voce esta atualmente))
-git checkout nova-branch  (Muda para a branch)
-git merge nova-branch  (Mescla uma branch à atual)
-git branch -d nome  (Deleta a branch)
-
 git pull origin master  (Baixa alterações do github (branch tambem))
 git push origin master  (Envia alterações)
-
-Branches Remotas:
 git fetch (Busca novas branches no repositorio)
 git branch -r (Ver branches remotas)
 git checkout -b nome origin/nome (Baixar e mudar para uma branch remota)
 
+Branches: (linha paralela de desenvolvimento do mesmo código)
+git branch  (Lista as branches)
+git branch nomebranch  (Cria nova branch)
+git checkout nomebranch  (Muda para a branch)
+git branch -m novo-nome  (Renomeia a branch atual)
+git merge nomebranch  (Mescla uma branch à atual)
+git branch -d nome  (Deleta a branch)
+
+git pull origin master  (Baixa alterações do GitHub)
+git push origin master  (Envia alterações)
+
+Branches Remotas:
+git fetch  (Busca novas branches no repositório)
+git branch -r  (Ver branches remotas)
+git checkout -b nome origin/nome  (Baixar e mudar para uma branch remota)
+
 
 -------------------------------------------------------------------
 
+⚠️ ATENÇÃO! Antes de executar o git push, sempre verifique se não há arquivos sensíveis no repositório (por exemplo, APIs, senhas, chaves). Caso existam, adicione-os ao .gitignore.
 
-Repositórios Remotos(GitHub):
+Resolvendo conflitos de merge:
+1. O Git marca os arquivos em conflito.
+2. Edite os arquivos para resolver os conflitos (procure por <<<<<<<, =======, >>>>>>>).
+3. Após resolver, use git add arquivo para marcar como resolvido.
+4. Finalize com git commit.
+            
 git remote add origin https://github.com/usuario/repositorio.git  (cria repositorio no github)
-
 git push -u origin master  (Envia o repositorio para o GitHub)(main é nome da branch)
-
 git clone https://github.com/usuario/repositorio.git  (clona repositorio)
 
+Repositórios Remotos (GitHub):
+git remote add origin https://github.com/usuario/repositorio.git  (Adiciona repositório remoto)
+git push -u origin master  (Envia o repositório para o GitHub)
+git clone https://github.com/usuario/repositorio.git  (Clona repositório)
 
 
 
 
 
-========== Atalhos VScode ==========
+
+
+========== Atalhos VS Code ==========
+
 
 🔧 GERAL
 - Ctrl + Shift + P → Abrir a Command Palette
@@ -105,10 +139,12 @@ git clone https://github.com/usuario/repositorio.git  (clona repositorio)
 - Ctrl + B → Mostrar/ocultar barra lateral
 - Ctrl + Shift + E → Abrir explorador de arquivos
 
+
 🧪 TERMINAL
-- Ctrl + ` (aspas simples) → Alternar terminal integrado
+- Ctrl + ` (crase) → Alternar terminal integrado
 - Ctrl + Shift + ` → Novo terminal
 - Ctrl + ' → Mostrar/ocultar terminal/painel
+
 
 ✍️ EDIÇÃO DE CÓDIGO
 - Ctrl + / → Comentar ou descomentar linha
@@ -118,9 +154,11 @@ git clone https://github.com/usuario/repositorio.git  (clona repositorio)
 - Ctrl + L → Selecionar linha inteira
 - Ctrl + D → Selecionar próxima ocorrência
 - Alt + Click → Criar múltiplos cursores
+- Ctrl + Alt + ↓ ou ↑ → Adicionar múltiplos cursores
 - Shift + Alt + F → Formatar o documento
 - Ctrl + Z → Desfazer
 - Ctrl + Y → Refazer
+
 
 🔍 BUSCA E NAVEGAÇÃO
 - Ctrl + F → Buscar no arquivo atual
@@ -131,3 +169,8 @@ git clone https://github.com/usuario/repositorio.git  (clona repositorio)
 - Alt + ← → Voltar (navegação)
 - Alt + → → Avançar (navegação)
 - Ctrl + Tab → Alternar entre arquivos abertos
+- Ctrl + Shift + Tab → Alternar para aba anterior
+
+💡 Dicas VS Code:
+- Use arquivos README.md para documentar projetos (suporta Markdown)
+- Extensões recomendadas para Git/GitHub: GitLens, Git Graph

@@ -9,30 +9,38 @@ Repositório pessoal de estudo e referência com foco em **React Native**, além
 ## MAPA DO PROJETO
 
 ```
-┌── 🎨 HTML-CSS                   # Estudos
-├── 📚 Java Script (HTML)         # Estudos
-├── 🔗 Git-GitHub-VScode.md       # Estudos/Guia rápido
-├── 📄 Guia-perguntas-entrevista.pdf  # PDF
+┌── 🎨 HTML-CSS                           # Estudos
+├── 📚 Java Script (HTML)                 # Estudos
+├── 🔗 Git-GitHub-VScode.md               # Estudos/Guia rápido
+├── 📄 Guia-perguntas-entrevista.pdf      # PDF
 ├── 📱 React Native/
 │   │
-│   ├── 📋 README                         # Guia
-│   ├── 🎯 Desafios-Praticas/...         # Exercícios
-│   └── 📱 AppEstudosRN/                  # App principal (foco)
+│   ├── Backend.md                        # Anotações backend
+│   ├── Pratica e desafios/
+│   │   ├── FinancaspessoaisAPP/          # Auth com rotas (SignIn/SignUp), Context + API
+│   │   └── Prática-GERAL/                # Exercícios (buscador, conversor, etc.)
+│   └── AppEstudosRN/                     # App principal (fundamentos + breadth)
 │       │
-│       ├── App.js              # Ponto de entrada principal
-│       ├── package.json         # Dependências e scripts
-│       ├── app.json             # Configuração Expo
-│       ├── index.js             # Entry point
-│       ├── src/                # Código fonte
-│       │   │   ├── Home/       # Tela principal (Todos os outros conhecimentos)
-│       │   │   ├── Sobre/      # Tela sobre (Props, Navigation...)
-│       │   │   └── FilmesAPI/  # Sistema de filmes(API,ReqHTTP,Loading,Modal...)
-│       │   └── Rotas/          # Navegação
-│       │       ├── Drawer.js   # Menu lateral
-│       │       ├── Tab.js      # Navegação por abas
-│       │       └── Stack.js    # Navegação em pilha
-│       ├── assets/              # Imagens e recursos
-│       └── node_modules/        # Dependências
+│       ├── App.js                        # Entrada (NavigationContainer + Context)
+│       ├── package.json                  # Dependências e scripts
+│       ├── app.json                      # Configuração Expo
+│       ├── index.js
+│       ├── assets/                       # Ícones e imagens
+│       └── src/
+│           ├── Pages/
+│           │   ├── Home/
+│           │   │   ├── Home.js           # Hooks, AsyncStorage, Animated, Animatable
+│           │   │   ├── ContextAPI.js     # Context básico
+│           │   │   └── Firebase users/   # Firebase Auth + Firestore (setup, lista)
+│           │   └── Sobre/
+│           │       ├── Sobre.js          # Navegação (params/props)
+│           │       └── API.js            # axios (baseURL)
+│           └── Rotas/
+│               ├── ComponentDrawer/
+│               │   └── CustomDrawer.js
+│               ├── Drawer.js             # Drawer com Tab e telas
+│               ├── Tab.js                # BottomTabs
+│               └── Stack.js              # Stack navigator
 ```
 
 ## **DOCUMENTAÇÕES**

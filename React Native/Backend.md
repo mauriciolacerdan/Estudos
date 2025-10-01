@@ -3,7 +3,7 @@
 
 ========== Insomnia ==========
 Insomnia é uma ferramenta para testar APIs (interfaces que conectam frontend e backend). Ele permite enviar requisições HTTP (GET, POST, PUT, DELETE) e ver a resposta do servidor.
-O backend tem que ta rodando: npm run dev
+rodar na pasta do backend: npm run dev
 
 Tipos de requisição:
 Tipo	           Função	                 Exemplo
@@ -36,7 +36,7 @@ Clique “Send” → veja resposta no painel.
 
 ========== Beekeeper ==========
 Beekeeper Studio é um cliente de banco de dados, ou seja, um software para você se conectar, consultar e gerenciar bancos de dados SQL (como MySQL, PostgreSQL, SQLite, etc.). Beekeeper é ótimo para testar queries que o app vai usar e para analisar dados do Firebase (Firestore) ou backend SQL.
-O backend tem que ta rodando: npm run dev
+rodar na pasta do backend: npm run dev
 
 Baixe em https://www.beekeeperstudio.io e instale.
 

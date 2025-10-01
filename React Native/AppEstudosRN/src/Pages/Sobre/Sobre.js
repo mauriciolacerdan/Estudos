@@ -45,8 +45,8 @@ export default function Sobre() {
         <View>
 
           {/*Pega propriedades vinda da Home*/}
-          <Text>{route.params?.nome}</Text>
-          <Text>{route.params?.email}</Text>
+          <Text>{String(route.params?.nome ?? "")}</Text>
+          <Text>{String(route.params?.email ?? "")}</Text>
 
 
 
@@ -56,9 +56,9 @@ export default function Sobre() {
             keyExtractor={(item) => String(item.id)}
             renderItem={({ item }) => (
               <View style={{ marginBottom: 20 }}>
-                <Text style={{ fontSize: 20 }}>{item.nome}</Text>
+                <Text style={{ fontSize: 20 }}>{String(item.nome ?? "")}</Text>
                 <Image source={{ uri: item.foto }} style={{height: 250}} resizeMode="cover" />
-                <Text>{item.sinopse}</Text>
+                <Text>{String(item.sinopse ?? "")}</Text>
               </View>
             )}
           />

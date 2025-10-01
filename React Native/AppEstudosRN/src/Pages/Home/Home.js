@@ -62,7 +62,7 @@ export default function Home(props) {
   // ----------- useMemo -----------
   // useMemo memoriza um valor calculado e só recalcula se as dependências mudarem
   const letrasNome = useMemo(() => {
-    return nomeAtual.length;
+    return (nomeAtual || "").length;
   }, [nomeAtual]);
 
 

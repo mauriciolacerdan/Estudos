@@ -55,6 +55,7 @@ yarn-error.*
 /android
 
 Api.js
+api.js
 
 // ...existing code...
 
