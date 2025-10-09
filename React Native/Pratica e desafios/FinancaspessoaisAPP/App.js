@@ -1,5 +1,6 @@
 // projeto: https://www.figma.com/design/O7hp0vwYIswS6xfKC51TFj/App-Finan%C3%A7as?node-id=0-1
 
+import 'react-native-gesture-handler';
 import React from "react";
 import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";

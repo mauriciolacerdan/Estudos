@@ -6,13 +6,13 @@
 // ===================== IMPORTAÇÕES =====================
 // React Native usa componentes próprios e permite usar hooks como useState para controle de estado.
 import React, { useEffect, useState, useMemo, useRef, useContext } from "react";
-import { View, Text, TextInput, Alert, Image, Button, StyleSheet, TouchableOpacity, ScrollView, FlatList, Switch, Modal, Animated, requireNativeComponent, StatusBar } from "react-native"; //Platform(responde plataforma do celular)
-import styled from 'styled-components/native'
+import { View, Text, TextInput, Alert, Image, Button, StyleSheet, TouchableOpacity, ScrollView, FlatList, Switch, Modal, Animated, requireNativeComponent, StatusBar, TouchableNativeFeedback, Keyboard } from "react-native"; //Platform(responde plataforma do celular)
+import styled from 'styled-components/native';
 import { Picker } from "@react-native-picker/picker";
 import Slider from "@react-native-community/slider";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import EvilIcons from "@expo/vector-icons/EvilIcons"; //Icones do Expo (https://icons.expo.fyi/Index)
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native"; //Focused verifica se voce esta na tela(Home) e responde boleano(foi usado no projeto Financaspessoais)
 import * as Animatable from "react-native-animatable";
 
 
@@ -70,7 +70,8 @@ export default function Home(props) {
   // ----------- AsyncStorage (precisa ser instalado) -----------
   // AsyncStorage permite salvar algo
   async function gravarNome(nome) {
-    await AsyncStorage.setItem("@nome", nome);
+    await AsyncStorage.setItem("@nome", nome); // await é usado dentro de funções async para pausar a execução até que uma Promise seja resolvida, deixando o código assíncrono mais simples e legível.
+    // await AsyncStorage.clear() // limpa o asyncStorage
   }
   // Carrega nome salvo:
   useEffect(() => {
@@ -94,7 +95,7 @@ export default function Home(props) {
   // função para lidar com clique no botão
   function atualizarNome() {
     if (nomeDigitado === "") {
-      Alert.alert("Digite seu nome");
+      Alert.alert("Digite seu nome"); //tem como personalizar Alert como colocar button
       inputRef.current.focus(); // Dá foco no campo de texto usando a ref
       return;
     }
@@ -283,7 +284,7 @@ export default function Home(props) {
 
   // ----------- RENDERIZAÇÃO -----------
   return (
-    <View style={styles.container}> {/*keyboardAvoidingView (View sobe com teclado)*/}
+    <View style={styles.container}> {/*keyboardAvoidingView (View sobe com teclado). pode colocar TouchableNativeFeedback em cima da view que faz ação quando clica na tela, e pode fechar keyboard */}
       <ScrollView /*Opção de Horizontal tambem / barra de rolagem*/ style={{ flex: 1 }} contentContainerStyle={{ alignItems: "center", paddingBottom: 10 }} >
 
 
@@ -382,6 +383,9 @@ export default function Home(props) {
           renderItem={({ item }) => <Pessoa data={item} />}
           contentContainerStyle={{ alignItems: "center", width: "100%" }}
           scrollEnabled={false}
+          // horizontal={true} //faz ficar horizontal
+          // showsHorizontalScrollIndicator={false} //tira scroll horizontal
+          // keyExtractor={} // recebe uma coisa
         />
 
 
@@ -525,13 +529,13 @@ const styles = StyleSheet.create({
 //precisa baixar(npm install styled-components) e exportar
 //pode exportar para ficar mais organizado e pode passar por props
 const Containe = styled.View`
-backgroundColor: #E6B450;
+background-color: #E6B450;
 align-items: center;
 justify-content: center;
 width: 150px;
 height: 60px;
-marginBottom: 40px;
-marginTop: 50px;
+margin-bottom: 40px;
+margin-Top: 50px;
 `;
 const Texto = styled.Text`
 color: ${props => props.cor};

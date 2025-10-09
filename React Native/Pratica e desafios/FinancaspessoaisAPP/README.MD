@@ -1,0 +1,1 @@
+detalhes: https://www.figma.com/design/O7hp0vwYIswS6xfKC51TFj/App-Finan%C3%A7as?node-id=0-1&p=f&t=ywohwuoHsfYBGjyp-0

@@ -1,6 +1,7 @@
-import React from "react";
-import { View, Text, Platform } from "react-native";
+import React, { useState, useContext } from "react";
+import { Platform, ActivityIndicator } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { AuthContext } from "../../Context/auth";
 
 import {
   Background,
@@ -16,6 +17,13 @@ import {
 
 export default function SignIn() {
   const navigation = useNavigation();
+  const { signIn, loadingAuth } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleLogin() {
+    signIn(email, password);
+  }
 
   return (
     <Background>
@@ -23,15 +31,27 @@ export default function SignIn() {
         <Logo source={require("../../img/Logo.png")} />
 
         <AreaInput>
-          <Input placeholder="Email" />
+          <Input
+            placeholder="Email"
+            value={email}
+            onChangeText={(Text) => setEmail(Text)}
+          />
         </AreaInput>
 
         <AreaInput>
-          <Input placeholder="Senha" />
+          <Input
+            placeholder="Senha"
+            value={password}
+            onChangeText={(Text) => setPassword(Text)}
+          />
         </AreaInput>
 
-        <SubmitButton activeOpacity={0.8}>
-          <SubmitText>Acessar</SubmitText>
+        <SubmitButton activeOpacity={0.8} onPress={handleLogin}>
+          {loadingAuth ? (
+            <ActivityIndicator size={20} color="#fff" />
+          ) : (
+            <SubmitText>Acessar</SubmitText>
+          )}
         </SubmitButton>
 
         <Link onPress={() => navigation.navigate("SignUp")}>
