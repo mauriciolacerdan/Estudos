@@ -17,7 +17,7 @@ Repositório pessoal de estudo e referência com foco em **React Native**, além
 │   │
 │   ├── Backend.md                        # Anotações backend
 │   ├── Pratica e desafios/
-│   │   ├── FinancaspessoaisAPP/          # Auth com rotas (SignIn/SignUp), Context + API
+│   │   ├── FinancaspessoaisAPP/          # Auth com rotas (SignIn/SignUp), Context + API, Backend...
 │   │   └── Prática-GERAL/                # Exercícios (buscador, conversor, etc.)
 │   └── AppEstudosRN/                     # App principal (fundamentos + breadth)
 │       │
@@ -71,6 +71,7 @@ Baixar emulador e arquivos necessarios(guia de baixar e config no site do que fo
 
 - Abrir Projeto:
   `npx expo start`
+  limpar cache: `npx expo start -c`
 
 Após abrir o projeto, não se preocupe com a organização do código.  
 O foco aqui é ser **didático** e facilitar o aprendizado, não seguir padrões de produção.

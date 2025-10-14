@@ -2,12 +2,15 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Home from "../paginas/Home";
 import New from "../paginas/new";
+import Profile from "../paginas/Profile";
+import CustomDrawer from "../Components/CustomDrawer/Index";
 
 const AppDrawer = createDrawerNavigator();
 
 function AppRoutes() {
   return (
     <AppDrawer.Navigator
+      drawerContent={(props) => <CustomDrawer {...props} />}
       screenOptions={{
         headerShown: false,
         drawerStyle: {
@@ -23,6 +26,8 @@ function AppRoutes() {
       <AppDrawer.Screen name="Home" component={Home} />
 
       <AppDrawer.Screen name="Registrar" component={New} />
+
+      <AppDrawer.Screen name="Perfil" component={Profile} />
     </AppDrawer.Navigator>
   );
 }

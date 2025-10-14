@@ -346,7 +346,7 @@ export default function Home(props) {
 
 
         {/* Button so que personalisavel com icone importado que abre o modal */}
-        <TouchableOpacity onPress={abrirModal}>
+        <TouchableOpacity onPress={abrirModal} > {/*tem outras funçoes como onLongPress*/}
           <EvilIcons name="arrow-right" size={60} color="black" style={{ marginBottom: 50 }} />
         </TouchableOpacity>
 
