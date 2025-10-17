@@ -14,7 +14,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import EvilIcons from "@expo/vector-icons/EvilIcons"; //Icones do Expo (https://icons.expo.fyi/Index)
 import { useNavigation, useIsFocused } from "@react-navigation/native"; //Focused verifica se voce esta na tela(Home) e responde boleano(foi usado no projeto Financaspessoais)
 import * as Animatable from "react-native-animatable";
-
+import * as ImagePicker from "expo-image-picker"; //imagens/videos
 
 // -----SEPARANDO COMPONENTES/IMPORTAÇÕES-----
 import Pessoa from "./FlatList Pessoa";
@@ -23,7 +23,6 @@ import { Usuarios } from "./Firebase users/ListUsers";
 import { auth } from "./Firebase users/Firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, } from "firebase/auth"; //autenticação, criação e persistencia de usuario
 import { AuthContext } from "./ContextAPI";
-
 
 
 
@@ -54,7 +53,7 @@ export default function Home(props) {
   // Pode rodar ao abrir o app ou quando uma variável muda (dependências)
   useEffect(() => {
     if (nomeAtual) {
-      console.log("Nome atualizado!", `Novo nome: ${nomeAtual}`);
+      // console.log("Nome atualizado!", `Novo nome: ${nomeAtual}`);
     }
   }, [nomeAtual]);
 
@@ -109,13 +108,16 @@ export default function Home(props) {
   // ----------- Modal -----------
   //abre uma janela na frente a anterior
   const [modalVisible, setModalVisible] = useState(false);
-  function abrirModal() { setModalVisible(true); }
+  function abrirModal() {
+    setModalVisible(true);
+  }
 
 
 
   // ----------- Navigation/Route(passando props e la recebe por parametros tambem) -----------
   const navigation = useNavigation();
-  function NavegandoSobre() { /*()=> navigation.navigate('Sobre') //navigation.goBack volta para a inicial e navigation.dispatch(StackActions.popToTop limpa a pilha de navegação e volta tudo) */
+  function NavegandoSobre() {
+    /*()=> navigation.navigate('Sobre') //navigation.goBack volta para a inicial e navigation.dispatch(StackActions.popToTop limpa a pilha de navegação e volta tudo) */
     navigation.navigate("Sobre", {
       nome: "Matheus",
       email: "matheus@teste.com",
@@ -268,33 +270,94 @@ export default function Home(props) {
   //Exeplos de backend e manipulação no FinancaspessoaisAPP
 
 
-  
+
   //Aparece/Esconde (continuação la em baixo)
-  function handleToggle() { setShowForm(!showForm); }
+  function handleToggle() {
+    setShowForm(!showForm);
+  }
 
 
 
   //ContextAPi continuação (importar bilbioteca react)
   //no exemplo pega informaçoes que foi passado para todo app
-  const {userC} = useContext(AuthContext)
+  const { userC } = useContext(AuthContext);
   // console.log(userC);
+
+
+
+  //Abrindo Album de fotos https://docs.expo.dev/versions/latest/sdk/imagepicker/
+  const pickImage = async () => {
+    //da para pedir permissao antes
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync({
+        // pode passar varias propriedades como tamanho, qualidade...
+        mediaTypes: "Images", // pode pegar videos
+        allowsEditing: true,
+        quality: 1,
+        selectionLimit: 2,
+      });
+
+      if (!result.canceled) {
+        setImageUri(result.assets[0].uri);
+        console.log(
+          "Detalhes da imagem:",
+          JSON.stringify(result.assets[0], null, 2)
+        );
+      } else {
+        console.log("Seleção cancelada");
+      }
+    } catch (error) {
+      console.log("Erro ao selecionar imagem:", error);
+    }
+  };
+  const [imageUri, setImageUri] = useState(null); //foto armazenada
+
+  //Tirando Foto
+  const takePhoto = async () => {
+    try {
+      // Pede permissão da câmera
+      const { status } = await ImagePicker.requestCameraPermissionsAsync();
+      if (status !== "granted") {
+        console.log("Permissão da câmera negada");
+        return;
+      }
+
+      const result = await ImagePicker.launchCameraAsync({
+        //pode passar varias propriedades como salvar na galeria...
+        allowsEditing: true,
+        quality: 1,
+      });
+
+      if (!result.canceled) {
+        setImageUri(result.assets[0].uri);
+        console.log("Foto tirada:", result.assets[0]);
+      } else {
+        console.log("Captura cancelada");
+      }
+    } catch (error) {
+      console.log("Erro ao tirar foto:", error);
+    }
+  };
 
 
 
 
   // ----------- RENDERIZAÇÃO -----------
   return (
-    <View style={styles.container}> {/*keyboardAvoidingView (View sobe com teclado). pode colocar TouchableNativeFeedback em cima da view que faz ação quando clica na tela, e pode fechar keyboard */}
-      <ScrollView /*Opção de Horizontal tambem / barra de rolagem*/ style={{ flex: 1 }} contentContainerStyle={{ alignItems: "center", paddingBottom: 10 }} >
-
-
-
-        <Image source={require("./icon.png")} style={{ width: 200, height: 200 }} />
-
-
+    <View style={styles.container}>
+      {" "}
+      {/*keyboardAvoidingView (View sobe com teclado). pode colocar TouchableNativeFeedback em cima da view que faz ação quando clica na tela, e pode fechar keyboard */}
+      <ScrollView
+        /*Opção de Horizontal tambem / barra de rolagem*/ style={{ flex: 1 }}
+        contentContainerStyle={{ alignItems: "center", paddingBottom: 10 }}
+      >
+        <Image source={require("./icon.png")} style={styles.image} />
 
         {/* Texto vindo do estado  */}
-        <Text style={{fontSize: 18, marginBottom: 10}}> Nome atual: {nomeAtual}, possui {letrasNome} letras </Text>
+        <Text style={{ fontSize: 18, marginBottom: 10 }}>
+          {" "}
+          Nome atual: {nomeAtual}, possui {letrasNome} letras{" "}
+        </Text>
 
         {/* Campo de texto controlado pelo estado */}
         <TextInput
@@ -350,8 +413,6 @@ export default function Home(props) {
           <EvilIcons name="arrow-right" size={60} color="black" style={{ marginBottom: 50 }} />
         </TouchableOpacity>
 
-
-      
         <Modal visible={modalVisible} animationType="slide" transparent={true}>
           <View style={styles.viewModal}>
             <Text style={{ color: "white", paddingBottom: 40 }}>
@@ -368,14 +429,22 @@ export default function Home(props) {
 
         {/* Navegando */}
         <TouchableOpacity onPress={NavegandoSobre}>
-          <Text style={{backgroundColor: '#f0f0f0', marginBottom: 50, fontSize: 20}}>Navega Filmes</Text>
+          <Text
+            style={{
+              backgroundColor: "#f0f0f0",
+              marginBottom: 50,
+              fontSize: 20,
+            }}
+          >
+            Navega Filmes
+          </Text>
         </TouchableOpacity>
 
-
-
-        <Button title="Abrir Drawer" onPress={() => navigation.openDrawer()} style={{ marginBottom: 40 }} />
-
-
+        <Button
+          title="Abrir Drawer"
+          onPress={() => navigation.openDrawer()}
+          style={{ marginBottom: 40 }}
+        />
 
         {/* FlatList(importado da pasta src pessoa) */}
         <FlatList
@@ -386,6 +455,8 @@ export default function Home(props) {
           // horizontal={true} //faz ficar horizontal
           // showsHorizontalScrollIndicator={false} //tira scroll horizontal
           // keyExtractor={} // recebe uma coisa
+          // ListEmptyComponent={<Text>Nenhum item encontrado</Text>} //renderiza se a lista estiver vazia
+          // ListFooterComponent={<Text>Fim da lista</Text>} // define oque aparece no final da lista
         />
 
 
@@ -419,21 +490,34 @@ export default function Home(props) {
 
 
         {/*Autenticação/login Firebase*/}
-        <View style={{flex: 1, backgroundColor: '#2424242f', alignItems: "center", marginTop: 50, marginBottom: 50}}>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: "#2424242f",
+            alignItems: "center",
+            marginTop: 50,
+            marginBottom: 50,
+          }}
+        >
           <Text style={{ fontSize: 20, textAlign: "center" }}> Login: </Text>
           <TextInput
             style={[styles.input, { width: 250 }]}
             placeholder="Digite seu Email..."
             value={email}
-            onChangeText={(text) => setEmail(text)} />
+            onChangeText={(text) => setEmail(text)}
+          />
           <TextInput
             style={styles.input}
             placeholder="Digite sua Senha..."
             value={password}
             onChangeText={(text) => setPassword(text)}
-            secureTextEntry={true} />
+            secureTextEntry={true}
+          />
 
-          <TouchableOpacity style={[styles.buttons, { marginBottom: 5 }]} onPress={handleCreateUser}>
+          <TouchableOpacity
+            style={[styles.buttons, { marginBottom: 5 }]}
+            onPress={handleCreateUser}
+          >
             <Text style={styles.textb}>Criar conta</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttons} onPress={handleLogin}>
@@ -454,7 +538,7 @@ export default function Home(props) {
             </Text>
           </View>
         )}
-        <TouchableOpacity style={styles.buttons} onPress={handleToggle} >
+        <TouchableOpacity style={styles.buttons} onPress={handleToggle}>
           <Text style={styles.textb}>
             {showForm ? "Esconder formulario" : "Mostrar formulario"}
           </Text>
@@ -464,8 +548,10 @@ export default function Home(props) {
 
         {/*Styled (estilização la em baixo)*/}
         <Containe>
-         <Texto cor="#fff" tamanho="28">Styled</Texto>
-         <Nome>Olá Sheldon</Nome>
+          <Texto cor="#fff" tamanho="28">
+            Styled
+          </Texto>
+          <Nome>Olá Sheldon</Nome>
         </Containe>
 
 
@@ -473,6 +559,21 @@ export default function Home(props) {
         {/*StatusBar (no ios e android funciona de formas diferentes)(mais funçoes na doc do reactnative)*/}
         <StatusBar backgroundColor="#ff0000ff" barStyle="dark-content" />
 
+        <View style={{ flexDirection: "row", gap: 14 }}>
+          <TouchableOpacity style={styles.buttons} onPress={pickImage}>
+            <Text style={styles.textb}>Abrir album</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttons} onPress={takePhoto}>
+            <Text style={styles.textb}>Abrir câmera</Text>
+          </TouchableOpacity>
+        </View>
+        {imageUri && (
+          <Image
+            source={{ uri: imageUri }}
+            style={styles.image}
+            resizeMode="contain"
+          />
+        )}
 
 
       </ScrollView>
@@ -521,6 +622,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#292929",
     borderRadius: 30,
   },
+  image: {
+    height: 200,
+    width: 200,
+  },
 });
 
 
@@ -529,19 +634,19 @@ const styles = StyleSheet.create({
 //precisa baixar(npm install styled-components) e exportar
 //pode exportar para ficar mais organizado e pode passar por props
 const Containe = styled.View`
-background-color: #E6B450;
-align-items: center;
-justify-content: center;
-width: 150px;
-height: 60px;
-margin-bottom: 40px;
-margin-Top: 50px;
+  background-color: #e6b450;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 60px;
+  margin-bottom: 40px;
+  margin-top: 50px;
 `;
 const Texto = styled.Text`
-color: ${props => props.cor};
-font-size: ${props => props.tamanho}px;
+  color: ${(props) => props.cor};
+  font-size: ${(props) => props.tamanho}px;
 `;
 const Nome = styled.Text`
-color: #fff;
-font-size: 15px;
+  color: #fff;
+  font-size: 15px;
 `;
