@@ -1,5 +1,5 @@
-// ========== FIREBASE ==========
-esse é um arquivo comentando e explicando o arquivo Firebase.js por motivos de segurança
+// ========== FIREBASE WEB ========== https://firebase.google.com/docs?hl=pt-br
+// esse é um arquivo comentando e explicando o arquivo Firebase.js por motivos de segurança
 
 // Firebase é uma plataforma do Google que oferece serviços como autenticação, banco de dados, armazenamento e outros recursos para apps web e mobile.
 // Este arquivo inicializa o Firebase e exporta as instâncias de autenticação e banco de dados Firestore para uso no app React Native.

@@ -59,7 +59,7 @@ Baixar emulador e arquivos necessarios(guia de baixar e config no site do que fo
 #### - Emulador([Android Studio](https://developer.android.com/studio)/[Xcode](https://developer.apple.com/xcode/)):
 
 - Criar novo projeto:
-  npx react-native init seuApp (dar [cd pastadoprojeto])
+  `npx @react-native-community/cli init Nomedoapp  (dar [cd pastadoprojeto])`
 
 - Abrir projeto (Com Emulador aberto) :
   `npx react-native run-android` Mac: `npx react-native run-ios`
