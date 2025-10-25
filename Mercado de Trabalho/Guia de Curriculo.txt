@@ -1,0 +1,65 @@
+GUIA DE CURRÍCULO ATS PARA PROGRAMADORES
+=======================================
+https://sujeitoprogramador.com/curriculo-ats-programador/
+
+1. ESTRUTURA GERAL
+- Criar no Google Docs ou Word.
+- Salvar em PDF.
+- Layout simples e legível, em uma única coluna.
+- Sem design: sem ícones, emojis, cores, colunas, fontes decoradas.
+- Não usar Canva (ATS não lê elementos visuais).
+
+2. ESTRATÉGIA
+- Currículo deve ser legível por algoritmos (ATS), não feito para design humano.
+- Adaptar o currículo para cada vaga, ajustando palavras-chave.
+- Aplicar mesmo sem atender 100% dos requisitos (RH normalmente exagera).
+- Usar palavras-chave da vaga (React Native, TypeScript, NodeJS etc.).
+- A ordem das palavras-chave importa.
+- Focar em resultados e impacto, não no tempo de trabalho.
+  Exemplo: "Reduzi o tempo de carregamento em 40% usando React Native e JavaScript."
+- Não listar experiências sem relação com programação.
+- Não colocar idade.
+- Não colocar objetivo profissional.
+- Evitar frases genéricas como "busco agregar ao time" ou "diferenciais".
+- Elaborar bem o prompt se usar IA para revisar o currículo.
+- Mostrar o valor que você entrega, com resultados mensuráveis.
+
+3. TAMANHO
+- Máximo 1 página para nível júnior.
+
+4. TÍTULOS RECONHECIDOS PELO ATS
+- Resumo profissional
+- Experiência profissional
+- Projetos
+- Habilidades técnicas
+- Educação (ou Formação acadêmica)
+- Certificados (opcional)
+
+5. ORDEM IDEAL
+1. Nome completo
+2. Título: Desenvolvedor Mobile (React Native, NodeJS, JavaScript)
+3. E-mail
+4. Telefone
+5. Cidade, Estado
+6. GitHub
+7. Portfólio
+8. LinkedIn
+9. Resumo profissional
+   - Breve texto com palavras-chave e foco em resultados.
+10. Experiência profissional
+    - Descrever impacto e conquistas.
+    - Se não houver experiência, usar projetos pessoais.
+11. Projetos pessoais
+    - Descrever aprendizados, tecnologias usadas e resultados.
+12. Habilidades técnicas
+    - Listar tecnologias dominadas (React Native, NodeJS, TypeScript, Git etc.).
+13. Formação acadêmica / Certificados
+    - Incluir links para certificados, se houver.
+
+6. DICAS FINAIS
+- Evitar seções desnecessárias.
+- Não usar frases vagas ou emocionais.
+- Currículo é técnico e objetivo.
+- Se tiver mais da metade dos requisitos, pode aplicar.
+- RH costuma listar mais do que é realmente necessário.
+

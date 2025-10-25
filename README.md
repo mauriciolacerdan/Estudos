@@ -64,6 +64,9 @@ Baixar emulador e arquivos necessarios(guia de baixar e config no site do que fo
 - Abrir projeto (Com Emulador aberto) :
   `npx react-native run-android` Mac: `npx react-native run-ios`
 
+- Abrir Metro(ja abre altomatico):
+  `npx react-native start`
+
 #### - [Expo Go:](https://docs.expo.dev/)
 
 - Criar novo projeto:
