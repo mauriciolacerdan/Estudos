@@ -1,28 +1,20 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import Routes from './src/routes';
+import AppRoutes from './src/routes/app.routes';
+import AuthProvider from './src/contexts/auth';
 
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar
-        backgroundColor="#36393f"
-        barStyle="light-content"
-        translucent={false}
-      />
-      <Routes />
+      <AuthProvider>
+        <StatusBar
+          backgroundColor="#36393f"
+          barStyle="light-content"
+          translucent={false}
+        />
+        <AppRoutes />
+      </AuthProvider>
     </NavigationContainer>
   );
 }
-
-/*import React from 'react';
-import { View, Text } from 'react-native';
-
-export default function App() {
-  return (
-    <View>
-      <Text>Tela APp</Text>
-    </View>
-  );
-}*/

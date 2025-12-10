@@ -3,7 +3,7 @@
 
 import React, { createContext, useState } from "react";
 
-// Cria o contexto para autenticação
+// Cria o contexto para autenticação onde ficao salvo as informaçoes para serem lidas
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
@@ -12,7 +12,9 @@ function AuthProvider({ children }) {
 
   return (
     // Provider disponibiliza "user" para todos os componentes filhos
-    <AuthContext.Provider value={{ userC }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ userC }}>
+      {children} {/* renderiza tudo que estiver dentro do AuthProvider */}
+    </AuthContext.Provider>
   );
 }
 

@@ -8,8 +8,8 @@ import AuthProvider from "./src/Pages/Home/ContextAPI"; // passando informaçoes
 export default function App() {
   return (
     <NavigationContainer>
-      <AuthProvider>
-        <DrawerRoutes />
+      <AuthProvider>cxcxcxcxcxcx
+        <DrawerRoutes />cxcxcxcxcxxcxcxcxcxcxcxcxc
       </AuthProvider>
     </NavigationContainer>
   );

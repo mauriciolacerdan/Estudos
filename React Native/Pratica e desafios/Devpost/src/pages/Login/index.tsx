@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Text, StyleSheet } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { Text, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import {
   Container,
   Title,
@@ -9,26 +9,69 @@ import {
   SignUpButton,
   SignUpText,
 } from './styles';
+import { AuthContext } from '../../contexts/auth';
+
+import * as Animatable from 'react-native-animatable';
+const TitleAnimated = Animatable.createAnimatableComponent(Title);
 
 export default function Login() {
   const [login, setLogin] = useState(true);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { signUp, signIn, loadingAuth } = useContext(AuthContext);
+
+  async function handleSignIn() {
+    if (email === '' || password === '') {
+      Alert.alert('PREENCHA TODOS OS CAMPOS');
+      return;
+    }
+
+    await signIn(email, password);
+  }
+
+  async function handleSignUp() {
+    if (email === '' || password === '' || name === '') {
+      Alert.alert('PREENCHA TODOS OS CAMPOS PARA CADASTRAR');
+      return;
+    }
+
+    await signUp(email, password, name);
+  }
 
   function toggleLogin() {
     setLogin(!login);
+    setName('');
+    setEmail('');
+    setPassword('');
   }
 
   if (login) {
     return (
       <Container>
-        <Title>
+        <TitleAnimated animation="flipInY">
           Dev<Text style={styles.post}>Post</Text>
-        </Title>
+        </TitleAnimated>
 
-        <Input placeholder="seuemail@teste.com" />
-        <Input placeholder="******" />
+        <Input
+          placeholder="seuemail@teste.com"
+          value={email}
+          onChangeText={text => setEmail(text)}
+        />
+        <Input
+          placeholder="******"
+          value={password}
+          onChangeText={text => setPassword(text)}
+          secureTextEntry={true}
+        />
 
-        <Button>
-          <ButtonText>Acessar</ButtonText>
+        <Button onPress={handleSignIn}>
+          {loadingAuth ? (
+            <ActivityIndicator size={20} color="#fff" />
+          ) : (
+            <ButtonText>Acessar</ButtonText>
+          )}
         </Button>
 
         <SignUpButton onPress={toggleLogin}>
@@ -40,16 +83,33 @@ export default function Login() {
 
   return (
     <Container>
-      <Title>
+      <TitleAnimated animation="flipInY">
         Dev<Text style={styles.post}>Post</Text>
-      </Title>
+      </TitleAnimated>
 
-      <Input placeholder="Seu nome" />
-      <Input placeholder="seuemail@teste.com" />
-      <Input placeholder="******" />
+      <Input
+        placeholder="Seu nome"
+        value={name}
+        onChangeText={text => setName(text)}
+      />
+      <Input
+        placeholder="seuemail@teste.com"
+        value={email}
+        onChangeText={text => setEmail(text)}
+      />
+      <Input
+        placeholder="******"
+        value={password}
+        onChangeText={text => setPassword(text)}
+        secureTextEntry={true}
+      />
 
-      <Button>
-        <ButtonText>Criar uma conta</ButtonText>
+      <Button onPress={handleSignUp}>
+        {loadingAuth ? (
+          <ActivityIndicator size={20} color="#fff" />
+        ) : (
+          <ButtonText>Cadastrar</ButtonText>
+        )}
       </Button>
 
       <SignUpButton onPress={toggleLogin}>

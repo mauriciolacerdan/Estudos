@@ -18,6 +18,8 @@ Repositório pessoal de estudo e referência com foco em **React Native**, além
 │   ├── Backend.md                        # Anotações backend
 │   ├── Pratica e desafios/
 │   │   ├── FinancaspessoaisAPP/          # Auth com rotas (SignIn/SignUp), Context + API, Backend...
+│   │   ├── Devpost/                      # Storage,Paginação,Refresh,Realtime,Likes,LayoutEffect,date-fns,ImagePicker,Nested,Modal,Batch
+│   │   ├── CarrinhoDeCompras/            # Context (carrinho), Stack, FlatList
 │   │   └── Prática-GERAL/                # Exercícios (buscador, conversor, etc.)
 │   └── AppEstudosRN/                     # App principal (fundamentos + breadth)
 │       │
@@ -61,12 +63,12 @@ Baixar emulador e arquivos necessarios(guia de baixar e config no site do que fo
 - Criar novo projeto:
   `npx @react-native-community/cli init Nomedoapp  (dar [cd pastadoprojeto])`
 
-- Abrir projeto (Com Emulador aberto) :
+- Instalar projeto (Com Emulador aberto) :
   `npx react-native run-android` Mac: `npx react-native run-ios`
 
-- Abrir Metro(ja abre altomatico):
+- Abrir Metro(Se o app ja tiver instalado no emulador):
   `npx react-native start`
-
+  
 #### - [Expo Go:](https://docs.expo.dev/)
 
 - Criar novo projeto:

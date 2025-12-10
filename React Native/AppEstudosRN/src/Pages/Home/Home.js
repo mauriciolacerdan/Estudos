@@ -71,7 +71,7 @@ export default function Home(props) {
   async function gravarNome(nome) {
     await AsyncStorage.setItem("@nome", nome); // await é usado dentro de funções async para pausar a execução até que uma Promise seja resolvida, deixando o código assíncrono mais simples e legível.
     // await AsyncStorage.clear() // limpa o asyncStorage
-  }
+  } /*async = transforma a função em assíncrona. await = pausa a execução dentro da função até a Promise resolver. */
   // Carrega nome salvo:
   useEffect(() => {
     async function loadData() {
@@ -280,7 +280,7 @@ export default function Home(props) {
 
   //ContextAPi continuação (importar bilbioteca react)
   //no exemplo pega informaçoes que foi passado para todo app
-  const { userC } = useContext(AuthContext);
+  const { userC } = useContext(AuthContext); //useContext é para receber informaçoes do AuthContext que contem as informações
   // console.log(userC);
 
 
@@ -338,6 +338,13 @@ export default function Home(props) {
       console.log("Erro ao tirar foto:", error);
     }
   };
+
+
+
+  /*Função anonima exemplo:
+  <button onClick={() => console.log("clicou")}> // faz uma função simples e sem nome
+   Teste
+  </button>*/
 
 
 

@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
 import AuthRoutes from './auth.routes';
 import AppRoutes from './app.routes';
 
+import { AuthContext } from '../contexts/auth';
+
 export default function Routes() {
-  const signed = false;
-  const loading = false;
+  const { signed, loading } = useContext(AuthContext);
 
   if (loading) {
     return (
