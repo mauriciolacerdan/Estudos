@@ -36,6 +36,7 @@ git init  (Transforma pasta virar repositorio)
 
 ---------- Comandos Básicos: ----------
 git gc (otimiza e limpa o repositório git dando mais desempenho)
+git gc --aggressive (usado em casos raros para otimização mais pesada)
 
 git add .  (Prepara arquivos para o commit)
 git commit -m "Mensagem"  (Cria um commit com mensagem)

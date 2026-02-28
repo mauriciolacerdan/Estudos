@@ -43,7 +43,7 @@ export { db, auth };
 - Tutoriais incluídos: Autenticação, Cloud Functions, etc.
 
 caso der erro na hora de rodar:
-acessar: C:\Estudos\React Native\Pratica e desafios\DevPost\android\app\build.gradle
+acessar: C:\Estudos\React Native\Pratica e desafios\Projeto\android\app\build.gradle
 adicionar:
     defaultConfig {
         applicationId "com.devpost"

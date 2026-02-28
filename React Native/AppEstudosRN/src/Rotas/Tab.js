@@ -1,6 +1,5 @@
 //======== TAB NAVIGATOR(precisa instalar)(ta dentro do drawer para nao da conflito) https://reactnavigation.org/ ========
 
-
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
@@ -9,10 +8,8 @@ import Stack from "./Stack";
 
 const Tab = createBottomTabNavigator();
 
-
 export default function TabNavigator() {
   return (
-
     <Tab.Navigator
       screenOptions={{
         tabBarHideOnKeyboard: true,
@@ -21,15 +18,13 @@ export default function TabNavigator() {
         tabBarStyle: { backgroundColor: "#363636ff", borderTopWidth: 0 },
       }}
     >
-
-
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
           headerShown: false,
           tabBarIcon: (
-            { color, size } //deixando a color e size nativa a ativa fica azul
+            { color, size }, //deixando a color e size nativa a ativa fica azul
           ) => <FontAwesome6 name="house" size={size} color={color} />,
         }}
       />
@@ -43,8 +38,6 @@ export default function TabNavigator() {
           ),
         }}
       />
-
     </Tab.Navigator>
-
   );
 }
