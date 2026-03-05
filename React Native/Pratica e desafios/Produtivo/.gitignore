@@ -93,5 +93,14 @@ jest-cache/
 .env
 .env.*
 
+# Firebase / Google
+google-services.json
+GoogleService-Info.plist
+android/app/google-services.json
+GoogleService-Info.plist
+C:\Estudos\React Native\Pratica e desafios\Produtivo\android\app\google-services.json
+React Native\Pratica e desafios\Produtivo\android\app\google-services.json
+React Native/Pratica e desafios/Produtivo/android/app/google-services.json
+android/app/google-services.json
 
 
