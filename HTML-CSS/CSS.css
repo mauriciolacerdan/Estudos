@@ -38,7 +38,7 @@ a /*altera todos os a*/ {
   padding: 10px;
 }
 
-p#principal /*continuação do indentificador linha60*/ {
+p#principal /*continuação do indentificador linha60(definindo por id)*/ {
   text-align: end;
   background-color: rgb(243, 142, 10);
 }

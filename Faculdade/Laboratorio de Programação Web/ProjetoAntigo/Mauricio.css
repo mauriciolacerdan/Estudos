@@ -1,0 +1,14 @@
+h3,
+h4 {
+  color: aqua;
+  font-weight: bold;
+}
+.Classse {
+  color: brown;
+}
+herança {
+  font-family: "Times New Roman", Times, serif;
+}
+#testeid {
+  font-style: italic;
+}

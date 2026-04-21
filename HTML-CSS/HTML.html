@@ -1,3 +1,4 @@
+<!--HTML é linguagem de marcação e não linguagem de programação. Linguagem de marcação usa Tags que são: h1,p,hr...-->
 <!DOCTYPE html> <!--[! + enter] cria estrutura-->
 <html lang="pt-br"> <!--Idioma do site-->
 <head> <!--Config do site-->
@@ -7,13 +8,13 @@
     <title>Nome Sitw</title> <!--Nome do site-->
     <link rel="stylesheet" href="CSS.css"> <!--CSS EXTERNO. ([link]>[css]) Define cor e estilo para inumeros script de forma pratica-->
     <style> /*CSS INTERNO. define a cor e estilo so desse script (pode usar no [body])*/
-       p#principal:hover {background-color: black;} /* :Pseudo clase. define estado a frase exemplo houver(quando passar mause em cima da p#principal fica preto*/
+       #principal:hover {background-color: black;} /* :Pseudo clase. define estado a frase exemplo houver(quando passar mause em cima da p#principal fica preto*/
        a:visited {color: beige;} /*[visited](pseudo classe) (quando visitar os a(link) vai ficar branco*/
        a:active {color: yellow;} /*[active](pseudo classe) (quando clica ativa o amarelo)*/
        a::after {content: '[ola]'} /* ::(pseudo elemento) (adicionou uma palavra depois de todos os link(a)*/
     </style>
 </head>
-<body> <!--Corpo do site-->
+<body> <!--Corpo do site(tudo que aparece para o usuario)-->
     <!-- !! usar grouping tags e semantic tags para organizar o codigo e o google entender a semantica pg9e10 https://github.com/gustavoguanabara/html-css/blob/master/aulas-pdf/16%20-%20Modelo%20de%20Caixas.pdf -->
 
     <!--Titulos. (Tem hierarquia)-->
@@ -41,7 +42,7 @@
 
     <br> <!--Quebra de linhas. (pode usar no meio do texto)-->
 
-    <ol type="5"> listas <!--Listas. (opção de colocar lista dentro de listas) ([type] define estilo)-->
+    <ol type="5"> listas <!--Listas. (opção de colocar lista dentro de listas) ([type] define estilo) -->
         <li>item de lista</li> 
         <li>item de lista</li>
         <li>item de lista</li>
@@ -51,16 +52,22 @@
         <li>item</li>
         <li>item</li>
     </ul> <br>
+    <dl> <!--Lista de definições-->
+        <dt>Html</dt>
+        <dd>termo a ser definifo</dd>
+        <dt>css</dt>
+        <dd>termo a ser definifo</dd>
+    </dl>
 
-    <table> <!--Tabela-->
+    <table style="border: 1px solid blue ;"> <!--Tabela-->
      <tr> <!--[tr]define linhas da tabela-->
       <th>ordem</th> <!--[th]cabeçalho da tabela-->
-      <th>serviç</th>
+      <th>serviço</th>
       <th>preço</th>
      </tr>
      <tr>
       <td>1</td><!--[td]dados dentro da tabela-->
-      <td>troca de vidro</td>
+      <td style="border: 1px solid;">troca de vidro</td>
       <td>R$800</td>
      </tr>
     </table> <br>
@@ -69,7 +76,7 @@
         
         <!--formulario de escrever-->
         <label>Primeiro nome</label> <!--[label]define o nome do campo/titulo (pode ter formulario sem o label)-->
-        <input type="nome" name="pnome" placeholder="seu nome" required ><!--[input]define o campo de texto (type define o tipo de campo) ([placeholder]da uma dica de oque preencher) ([required]define o preenchimento obrigatorio)--> <br>
+        <input type="text" name="pnome" placeholder="seu nome" required ><!--[input]define o campo de texto (type define o tipo de campo) ([placeholder]da uma dica de oque preencher) ([required]define o preenchimento obrigatorio)--> <br>
 
         <!--formulario de marcar (radio[type] radio permite marcar apenas uma opção)-->
         <label>
@@ -114,7 +121,7 @@
 
     <button>botao</button><!--botão-->
 
-    <img src="Mídias/irina-blok-pq.jpg" alt="img.jpg"> <!--Imagem. (analisar:tamanho,qualidade,formato e direito de uso)(pode colocar dentro de pastas)--> <br>
+    <img src="Mídias/irina-blok-pq.jpg" alt="Descrição da imagem(aparece se nao carregar)"> <!--Imagem. (analisar:tamanho,qualidade,formato e direito de uso)(pode colocar dentro de pastas)--> <br>
 
     <picture> <!--[picture] usado para mais de uma imagem (Mudar img conforme o tamanho de tela)-->
         <source media="(max-width: 500px)" srcset="imagens/p.png" type="image/png">
@@ -128,10 +135,22 @@
     <video poster="Mídias/p.png" src="midias/video.mp4" type="video/mp4" width="500" controls loop ></video> <!--Video. (cuidado com o peso!) ([poster]capa do video) ([src]endereço do video) ([type] define que é um video mp4) ([width] determina o tamanho CSS) ([controls] controles do video (tem que ter)) ([loop]dar loop)-->
     <iframe width="560" height="315" src="https://www.youtube.com/embed/OzUnqQk4eOg?si=LlOcbmqsyZWvNQCU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> <!--Video youtube ou vimeo. (Site fica mais leve)--> <br>
 
-    <audio src="midias/musica.mp3" controls></audio> <!--audio(nem todo navegador aceita mp3 entao da pra colocar varios de outra forma) ([src]local do audio) --> <br>
+    <audio src="midias/musica.mp3" controls></audio> <!--audio(nem todo navegador aceita mp3 entao da pra colocar varios de outra forma) ([src]local do audio) tem outras tags para controle de audio --> <br>
     
+    <a href="arquivo.pdf" download>baixar arquivo</a> <!--Link de download-->
+
     <p id="principal">titulo 2</p> <!--[id=""]identificador. Para fazer altereções so nele (html:id css:#)-->
     <p class="outro">titulo 3</p> <!--[class=""]identificador. para mais de um texto [html:class e css:.] (pode colocar mais de uma classe no texto) (oque for da classe outro vai ser configurado (continuação no css))-->
+
+
+    <!--Estrutura moderna de um site-->
+    <header></header> <!--cabeçalho-->
+    <nav></nav> <!--menu-->
+    <section></section> <!--seção do site-->
+    <article></article> <!--conteudo principal-->
+    <aside></aside> <!--conteudo extra-->
+    <footer></footer> <!--rodapé-->
+    <div></div> <!--Usado para organizar seções do site.-->
 
 
 
@@ -149,6 +168,6 @@
    </ul>
 
 
-   <script src="C:\Users\mauri\Desktop\Projetos\Estudos\Java Script (HTML)\JavaScript.js"></script> <!--abre o js dentro do html-->
+   <script src="JavaScript.js"></script> <!--Conecta o html com JS-->
 </body>
 </html>

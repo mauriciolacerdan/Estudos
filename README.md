@@ -57,6 +57,7 @@ Dentro de cada documento eu ja coloquei as documentações necessarias.
 
 Baixar [Node.js E JDK11](https://nodejs.org/)
 Baixar emulador e arquivos necessarios(guia de baixar e config no site do que for usar)
+Analisar métricas do código: `npx unlighthouse -site <url-site>`
 
 #### - Emulador([Android Studio](https://developer.android.com/studio)/[Xcode](https://developer.apple.com/xcode/)):
 
