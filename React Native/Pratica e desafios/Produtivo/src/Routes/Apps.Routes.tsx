@@ -9,7 +9,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import Home from '../Pages/Home/Index';
 import Profile from '../Pages/Profile/Index';
 import Metas from '../Pages/Metas/Index';
-import Rotina from '../Pages/Rotina/Index';
+import Tarefas from '../Pages/Tarefas/Index';
 
 const HomeIcon = ({ color, size }) => (
   <Feather name="home" color={color} size={size} />
@@ -44,9 +44,9 @@ export default function AppRoutes() {
     <Tab.Navigator
       screenOptions={{
         tabBarHideOnKeyboard: true,
-        tabBarShowLabel: false,
-        tabBarActiveTintColor: '#fff',
-        tabBarStyle: { backgroundColor: '#0A74DA', borderTopWidth: 0 },
+        tabBarShowLabel: true,
+        tabBarActiveTintColor: '#ffffff',
+        tabBarStyle: { backgroundColor: '#2a2a2a', borderTopWidth: 0 },
       }}
     >
       <Tab.Screen
@@ -58,8 +58,8 @@ export default function AppRoutes() {
         }}
       />
       <Tab.Screen
-        name="Rotina"
-        component={Rotina}
+        name="Tarefas"
+        component={Tarefas}
         options={{
           headerShown: false,
           tabBarIcon: RotinaIcon,
@@ -74,7 +74,7 @@ export default function AppRoutes() {
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="Perfil"
         component={Profile}
         options={{
           headerShown: false,

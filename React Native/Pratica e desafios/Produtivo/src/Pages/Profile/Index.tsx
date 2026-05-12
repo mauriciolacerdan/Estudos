@@ -17,11 +17,11 @@ export default function Profile() {
     <Container>
       <Perfil>
         <Avatar source={require('../../Assets/avatar.png')}></Avatar>
-        <Info>
-          <Name>{user.nome}</Name>
-          <Email>{user.email}</Email>
-        </Info>
+
+        <Name>{user.nome}</Name>
+        <Email>{user.email}</Email>
       </Perfil>
+
       <Sair onPress={signOut} activeOpacity={0.7}>
         <SairText>Sair da Conta</SairText>
       </Sair>
