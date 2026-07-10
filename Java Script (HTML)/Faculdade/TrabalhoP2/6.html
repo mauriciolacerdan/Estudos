@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Questão 6</title>
+  </head>
+  <body>
+    <h2>Verificador de Palíndromo</h2>
+    <input type="text" id="palavra" />
+    <button onclick="verificar()">Verificar</button>
+    <p id="resultado"></p>
+    <script>
+      function verificar() {
+        let palavra = document.getElementById("palavra").value;
+        let invertida = palavra.split("").reverse().join("");
+        if (palavra == invertida) {
+          document.getElementById("resultado").innerHTML = "É um palíndromo";
+        } else {
+          document.getElementById("resultado").innerHTML =
+            "Não é um palíndromo";
+        }
+      }
+    </script>
+  </body>
+</html>

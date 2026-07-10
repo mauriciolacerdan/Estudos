@@ -1,18 +1,20 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
+import { useNavigation } from '@react-navigation/native';
 import {
   Container,
   Name,
   Email,
-  Sair,
+  Button,
   SairText,
   Perfil,
   Avatar,
-  Info,
+  ConfigText,
 } from './styles';
 
 export default function Profile() {
   const { signOut, user } = useContext(AuthContext);
+  const navigation = useNavigation<any>();
   return (
     <Container>
       <Perfil>
@@ -22,9 +24,13 @@ export default function Profile() {
         <Email>{user.email}</Email>
       </Perfil>
 
-      <Sair onPress={signOut} activeOpacity={0.7}>
+      <Button onPress={() => navigation.navigate('Settings')}>
+        <ConfigText>Configurações</ConfigText>
+      </Button>
+
+      <Button onPress={signOut} activeOpacity={0.7}>
         <SairText>Sair da Conta</SairText>
-      </Sair>
+      </Button>
     </Container>
   );
 }

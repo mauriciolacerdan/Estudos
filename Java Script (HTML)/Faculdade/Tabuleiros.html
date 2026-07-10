@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercício</title>
+  </head>
+
+  <body>
+    <script>
+      let n = parseInt(prompt("Digite a quantidade de quadrados:"));
+
+      document.write("<h2>Quadrado Vazio</h2>");
+      document.write("<table border='1' cellspacing='0'>");
+      for (i = 0; i < n; i++) {
+        document.write("<tr>");
+
+        for (j = 0; j < n; j++) {
+          if (i == 0 || i == n - 1 || j == 0 || j == n - 1) {
+            document.write(
+              "<td style='width:40px; height:40px; text-align:center'>*</td>",
+            );
+          } else {
+            document.write("<td style='width:40px; height:40px'></td>");
+          }
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+
+      document.write("<h2>Diagonal</h2>");
+      document.write("<table border='1' cellspacing='0'>");
+      for (i = 0; i < n; i++) {
+        document.write("<tr>");
+
+        for (j = 0; j < n; j++) {
+          if (j == 0 || i == j || i == n - 1) {
+            document.write(
+              "<td style='width:40px; height:40px; text-align:center'>*</td>",
+            );
+          } else {
+            document.write("<td style='width:40px; height:40px'></td>");
+          }
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+
+      document.write("<h2>Quadriculado</h2>");
+      document.write("<table border='1' cellspacing='0'>");
+      for (i = 0; i < n; i++) {
+        document.write("<tr>");
+        for (j = 0; j < n; j++) {
+          if ((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1)) {
+            document.write(
+              "<td style='background-color:black; width:40px; height:40px'></td>",
+            );
+          } else {
+            document.write("<td style='width:40px; height:40px'></td>");
+          }
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+    </script>
+
+    # Código do Tabuleiro Melhor
+    <script>
+      // Cria o início da tabela HTML
+      // border='1' cria borda
+      // cellspacing='0' remove espaçamento entre células
+      document.write("<table border='1' cellspacing='0'>");
+
+      // ===== LOOP DAS LINHAS =====
+      // i representa as linhas
+      // começa em 0
+      // repete enquanto i for menor que n
+      // i++ adiciona +1 a cada repetição
+      for (i = 0; i < n; i++) {
+        // Cria uma linha da tabela
+        document.write("<tr>");
+
+        // ===== LOOP DAS COLUNAS =====
+        // j representa as colunas
+        for (j = 0; j < n; j++) {
+          // ===== LÓGICA DO TABULEIRO =====
+          // i + j soma posição da linha com coluna
+          // % 2 verifica se resultado é par ou ímpar
+          // Exemplo:
+          // 0 + 0 = 0 → PAR
+          // 0 + 1 = 1 → ÍMPAR
+          // 0 + 2 = 2 → PAR
+          // Se for PAR:
+          // pinta preto
+          if ((i + j) % 2 == 0) {
+            document.write(
+              "<td style='width:100px; height:100px; background-color:black; color:white;'></td>",
+            );
+          } else {
+            // Se for ÍMPAR:
+            // pinta branco
+            document.write(
+              "<td style='width:100px; height:100px; background-color:white;'></td>",
+            );
+          }
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+    </script>
+  </body>
+</html>

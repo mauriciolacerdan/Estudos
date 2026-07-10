@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Questão 12</title>
+    <style>
+      img {
+        width: 120px;
+        height: 120px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      #ampliada img {
+        width: 400px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Galeria</h2>
+    <div>
+      <img
+        src="https://picsum.photos/id/10/300/300"
+        onclick="ampliar(this.src)"
+      />
+      <img
+        src="https://picsum.photos/id/20/300/300"
+        onclick="ampliar(this.src)"
+      />
+      <img
+        src="https://picsum.photos/id/30/300/300"
+        onclick="ampliar(this.src)"
+      />
+      <img
+        src="https://picsum.photos/id/40/300/300"
+        onclick="ampliar(this.src)"
+      />
+    </div>
+    <hr />
+    <div id="ampliada">
+      <img src="https://picsum.photos/id/10/300/300" />
+    </div>
+    <script>
+      function ampliar(imagem) {
+        document.getElementById("ampliada").innerHTML =
+          "<img src='" + imagem + "'>";
+      }
+    </script>
+  </body>
+</html>

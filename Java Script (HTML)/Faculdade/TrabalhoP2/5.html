@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Questão 5</title>
+  </head>
+  <body>
+    <h2>Cadastro</h2>
+    <form onsubmit="return validar();">
+      <label>Login:</label>
+      <input type="text" id="login" />
+      <br /><br />
+      <label>Senha:</label>
+      <input type="password" id="senha" />
+      <br /><br />
+      <label>Confirmar Senha:</label>
+      <input type="password" id="confirmar" />
+      <br /><br />
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+      function validar() {
+        let login = document.getElementById("login").value;
+        let senha = document.getElementById("senha").value;
+        let confirmar = document.getElementById("confirmar").value;
+        // Campos vazios
+        if (login == "" || senha == "" || confirmar == "") {
+          alert("Preencha todos os campos.");
+          return false;
+        }
+        // Senhas diferentes
+        if (senha != confirmar) {
+          alert("As senhas são diferentes.");
+          return false;
+        }
+        // Tamanho da senha
+        if (senha.length < 6 || senha.length > 10) {
+          alert("A senha deve ter entre 6 e 10 caracteres.");
+          return false;
+        }
+        alert("Cadastro realizado com sucesso!");
+        return true;
+      }
+    </script>
+  </body>
+</html>

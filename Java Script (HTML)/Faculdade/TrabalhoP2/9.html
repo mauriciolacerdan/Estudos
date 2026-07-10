@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Questão 9</title>
+  </head>
+  <body>
+    <h2>Intercalar Palavras</h2>
+    <input type="text" id="palavra1" placeholder="Palavra 1" />
+    <br /><br />
+    <input type="text" id="palavra2" placeholder="Palavra 2" />
+    <br /><br />
+    <input type="text" id="resultado" disabled />
+    <br /><br />
+    <button onclick="intercalar()">Intercalar</button>
+    <script>
+      function intercalar() {
+        let p1 = document.getElementById("palavra1").value;
+        let p2 = document.getElementById("palavra2").value;
+        let resultado = "";
+        let maior = Math.max(p1.length, p2.length);
+        for (let i = 0; i < maior; i++) {
+          if (i < p1.length) {
+            resultado += p1[i];
+          }
+          if (i < p2.length) {
+            resultado += p2[i];
+          }
+        }
+        document.getElementById("resultado").value = resultado;
+      }
+    </script>
+  </body>
+</html>

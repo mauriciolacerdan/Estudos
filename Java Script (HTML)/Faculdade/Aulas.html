@@ -1,0 +1,122 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ola mundo em Java Script</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var nome, sobrenome; //var guarda informação na memoria ram
+      nome = window.prompt("Digite seu nome: "); //atribui o valor digitado a variavel nome atraves do =
+      sobrenome = window.prompt("Digite seu sobrenome: ");
+      document.write("Olá, " + nome + " " + sobrenome + "!");
+      /*
+       window: contém propriedades que se aplicam a toda a janela
+
+       document: contém propriedades do documento contido na janela (todo o conteúdo, título, cores, etc)
+       */
+    </script>
+    <script type="text/javascript">
+      /*var valor1 = parseInt(window.prompt("Digite o primeiro valor para ser somado ao segundo: "));
+      var valor2 = parseInt(window.prompt("Digite o segundo valor: "));
+      var resultado = valor1 + valor2;
+      alert(resultado);*/
+
+      /*
+      parse converte string para numero para ser somado por exemplo.
+      num1 = parseInt(“10”)
+      num2 = parseFloat(“22.50”)
+      */
+
+      /*
+      Operadores Aritméticos:
+      + Adição c = a + b
+      - Subtração c = a – b
+      * Multiplicação c = a * b
+      / Divisão c = a / b
+      % Módulo da divisão ou Resto c = a % b
+      ++ Incremento c = a++
+      -- Decremento c = a--
+      
+      Operadores Relacionais:
+      Em JavaScript os operadores relacionais retornam um
+      valor booleano (true ou false) e são:
+      Operador Operação Exemplo
+      < Menor a < b
+      > Maior a > b
+      == Igual a == b
+      != Diferente a != b
+      >= Maior ou igual a >= b
+      <= Menor ou igual a <= b
+
+      Operadores Lógicos
+      Em JavaScript os operadores lógicos também retornam
+      um valor booleano. Porém seus operandos também são
+      valores booleanos:
+      Operador Operação Exemplo
+      && E lógico (a < b) && (b < c)
+      || OU lógico (a < b) || (b < c)
+      Operando 1 Operando 2 Resultado
+
+      Tabela verdade do Operador &&
+      Verdadeiro Verdadeiro Verdadeiro
+      Verdadeiro Falso Falso
+      Falso Verdadeiro Falso
+      Falso Falso Falso
+
+      Tabela verdade do Operador ||
+      Operando 1 Operando 2 Resultado
+      Verdadeiro Verdadeiro Verdadeiro
+      Verdadeiro Falso Verdadeiro
+      Falso Verdadeiro Verdadeiro
+      Falso Falso Falso
+      */
+    </script>
+    <script type="text/javascript">
+      /* var idade = parseInt(window.prompt("Digite sua Idade: "));
+      if (idade > 16) {
+      window.alert("Ele ja pode votar"); 
+      } else { window.alert("Ele nao pode votar")} */
+      /*
+      - Pode ser usado um if depois do outro quando necessário avaliar várias condições uma após outra
+      - Pode fazer Decisões Encadeadas Utilizadas quando uma condição só deve ser avaliada caso outra condição seja ou não satisfeita usando if e else  */
+
+      /*Seleção Seqüencial:
+      switch(<variavel>){
+      case <opcao1> : <operação1> ; break;
+      case <opcao2> : <operação2> ; break;
+      case <opcao3> : <operação3> ; break;
+      case <opcaoN> : <operaçãoN> ; break;
+      default : <operaçãoDefault>;
+      }
+      <variavel> : nome da variável a ser controlada na decisão
+      <opcao>: conteúdo da variável a ser verificado
+      <operacao>: a execução de alguma instrução*/
+
+      /*
+      Laços de Repetição:
+      Existem situações em que é necessário repetir trechos de um programa um determinado número de vezes.
+
+      Laços de Repetição Com condição Inicial:
+      while (<condição>){
+      <instrução1  executada enquanto condição for  verdadeira>;
+      <instrução2  executada enquanto condição for  verdadeira>;
+      <instruçãoN  executada enquanto condição for  verdadeira>;
+      }
+      Ao utilizar laços de repetição, NUNCA esqueça de satisfazer a condição de parada do laço!
+
+      Laços de Repetição Iterativo:
+      for (<inicialização>; <condição>; <incremento>){
+        <instrução1>
+        <instrução2>
+        <instrução3>
+        <instruçãoN>
+      }
+      inicialização: é uma instrução de atribuição com o valor inicial do laço
+      condição: é uma instrução de condição com o valor final do laço (condição de parada). Enquanto essa
+      condição estiver sendo satisfeita, o laço é executado. incremento: expressão com incremento do laço
+      */
+    </script>
+  </body>
+</html>

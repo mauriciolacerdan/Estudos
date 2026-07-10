@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Questão 4</title>
+  </head>
+  <body>
+    <p id="texto">Este é um parágrafo de exemplo.</p>
+    <button onclick="alternarTexto()">Ocultar/Mostrar</button>
+    <script>
+      function alternarTexto() {
+        let paragrafo = document.getElementById("texto");
+        if (paragrafo.style.display == "none") {
+          paragrafo.style.display = "block";
+        } else {
+          paragrafo.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

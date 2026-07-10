@@ -51,7 +51,7 @@ export default function Login() {
 
         <Texte>Email</Texte>
         <Input
-          placeholder="  seu@email.com"
+          placeholder="seu@email.com"
           placeholderTextColor="#ffffff3b" 
           value={email}
           onChangeText={text => setEmail(text)}
@@ -59,7 +59,7 @@ export default function Login() {
 
         <Texte>Senha</Texte>
         <Input
-          placeholder="  ******"
+          placeholder="******"
           placeholderTextColor="#ffffff3b" 
           secureTextEntry={true}
           value={password}
@@ -87,7 +87,7 @@ export default function Login() {
 
       <Texte>Nome</Texte>
       <Input
-        placeholder="  Seunome"
+        placeholder="Seunome"
         placeholderTextColor="#ffffff3b" 
         value={name}
         onChangeText={text => setName(text)}
@@ -95,7 +95,7 @@ export default function Login() {
 
       <Texte>Email</Texte>
       <Input
-        placeholder="  seu@email.com"
+        placeholder="seu@email.com"
         placeholderTextColor="#ffffff3b" 
         value={email}
         onChangeText={text => setEmail(text)}
@@ -103,7 +103,7 @@ export default function Login() {
 
       <Texte>Senha</Texte>
       <Input
-        placeholder="  ********"
+        placeholder="********"
         placeholderTextColor="#ffffff3b" 
         secureTextEntry={true}
         value={password}

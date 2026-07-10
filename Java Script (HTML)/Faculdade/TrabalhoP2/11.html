@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Questão 11</title>
+  </head>
+  <body>
+    <h2>Pesquisar Palavra</h2>
+    <input type="text" id="busca" />
+    <button onclick="pesquisar()">Pesquisar</button>
+    <p id="mensagem"></p>
+    <hr />
+    <div id="texto">
+      JavaScript é uma linguagem muito usada. JavaScript pode alterar páginas.
+      JavaScript trabalha com eventos.
+    </div>
+    <script>
+      function pesquisar() {
+        let palavra = document.getElementById("busca").value;
+        let textoOriginal = `JavaScript é uma linguagem muito usada.
+    JavaScript pode alterar páginas.
+    JavaScript trabalha com eventos.`;
+        let quantidade = 0;
+        let palavras = textoOriginal.split(palavra);
+        quantidade = palavras.length - 1;
+        if (quantidade > 0) {
+          let destaque = textoOriginal.replaceAll(
+            palavra,
+            "<span style='background-color:yellow'>" + palavra + "</span>",
+          );
+          document.getElementById("texto").innerHTML = destaque;
+          document.getElementById("mensagem").innerHTML =
+            "Encontradas " + quantidade + " ocorrência(s).";
+        } else {
+          document.getElementById("mensagem").innerHTML =
+            "Nenhum resultado encontrado.";
+        }
+      }
+    </script>
+  </body>
+</html>

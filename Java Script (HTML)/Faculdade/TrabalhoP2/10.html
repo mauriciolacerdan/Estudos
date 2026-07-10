@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Questão 10</title>
+  </head>
+  <body>
+    <h2>Operações com 3 números</h2>
+    <input type="number" id="n1" placeholder="Número 1" />
+    <br /><br />
+    <input type="number" id="n2" placeholder="Número 2" />
+    <br /><br />
+    <input type="number" id="n3" placeholder="Número 3" />
+    <br /><br />
+    <button onclick="calcular()">Calcular</button>
+    <div id="resultado"></div>
+    <script>
+      function calcular() {
+        let n1 = Number(document.getElementById("n1").value);
+        let n2 = Number(document.getElementById("n2").value);
+        let n3 = Number(document.getElementById("n3").value);
+        let soma = n1 + n2 + n3;
+        let media = soma / 3;
+        let produto = n1 * n2 * n3;
+        let maior = Math.max(n1, n2, n3);
+        let menor = Math.min(n1, n2, n3);
+        document.getElementById("resultado").innerHTML = `
+    <table border="1">
+        <tr>
+            <th>Número 1</th>
+            <th>Número 2</th>
+            <th>Número 3</th>
+        </tr>
+        <tr>
+            <td>${n1}</td>
+            <td>${n2}</td>
+            <td>${n3}</td>
+        </tr>
+    </table>
+    <br>
+    Soma: ${soma}<br>
+    Média: ${media}<br>
+    Produto: ${produto}<br>
+    Maior: ${maior}<br>
+    Menor: ${menor}
+    `;
+      }
+    </script>
+  </body>
+</html>

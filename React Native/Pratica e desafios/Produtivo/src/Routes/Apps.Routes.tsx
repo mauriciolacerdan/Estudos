@@ -6,17 +6,18 @@ const Tab = createBottomTabNavigator();
 
 import Feather from 'react-native-vector-icons/Feather';
 
-import Home from '../Pages/Home/Index';
-import Profile from '../Pages/Profile/Index';
-import Metas from '../Pages/Metas/Index';
-import Tarefas from '../Pages/Tarefas/Index';
+import Home from '../Pages/Home';
+import Profile from '../Pages/Profile';
+import Metas from '../Pages/Metas';
+import Tarefas from '../Pages/Tarefas';
+import Settings from '../Pages/Settings';
 
 const HomeIcon = ({ color, size }) => (
   <Feather name="home" color={color} size={size} />
 );
 
 const RotinaIcon = ({ color, size }) => (
-  <Feather name="calendar" color={color} size={size} />
+  <Feather name="check-square" color={color} size={size} />
 );
 
 const MetasIcon = ({ color, size }) => (
@@ -34,6 +35,37 @@ function StackRoutes() {
         name="Home"
         component={Home}
         options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function ProfileStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="ProfileMain"
+        component={Profile}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          title: 'Configurações',
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#1c1c1c',
+          },
+          headerShadowVisible: false,
+          headerTintColor: '#ffffff',
+          headerTitleStyle: {
+            color: '#ffffff',
+            fontSize: 20,
+            fontWeight: '600',
+          },
+        }}
       />
     </Stack.Navigator>
   );
@@ -75,7 +107,7 @@ export default function AppRoutes() {
       />
       <Tab.Screen
         name="Perfil"
-        component={Profile}
+        component={ProfileStack}
         options={{
           headerShown: false,
           tabBarIcon: ProfileIcon,

@@ -1,9 +1,10 @@
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import { Container } from './styles';
 
 export default function Metas() {
   return (
-    <View>
+    <Container>
       <Text>Metas</Text>
-    </View>
+    </Container>
   );
 }

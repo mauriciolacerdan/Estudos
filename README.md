@@ -11,22 +11,40 @@ Repositório pessoal de estudo e referência com foco em **React Native**, além
 ```
 ┌── 🎨 HTML-CSS                           # Estudos
 ├── 📚 Java Script (HTML)                 # Estudos
+├── 🎓 Faculdade/
+│   └── Laboratorio de Programação Web/
+│       ├── JS/
+│       │   └── TrabalhoP2/
+│       │       └── TrabalhoWebP2.pdf
+│       └── SiteAntigo/
 ├── 🔗 Git-GitHub-VScode.md               # Estudos/Guia rápido
-├── 📄 Guia-perguntas-entrevista.pdf      # PDF
+├── 💼 Mercado de Trabalho - SAAS/
+│   ├── Guia-perguntas-entrevista.pdf
+│   ├── Curriculo Exemplo.pdf
+│   ├── Guia de Curriculo.txt
+│   └── Videos Importantes.txt
 ├── 📱 React Native/
 │   │
 │   ├── Backend.md                        # Anotações backend
+│   ├── .gitignore
 │   ├── Pratica e desafios/
+│   │   ├── .gitignore
+│   │   ├── Ideias.md
 │   │   ├── FinancaspessoaisAPP/          # Auth com rotas (SignIn/SignUp), Context + API, Backend...
-│   │   ├── Devpost/                      # Storage,Paginação,Refresh,Realtime,Likes,LayoutEffect,date-fns,ImagePicker,Nested,Modal,Batch
+│   │   ├── Devpost/                      # Storage, Paginação, Refresh, Realtime, Likes, LayoutEffect, date-fns, ImagePicker, Nested, Modal, Batch
 │   │   ├── CarrinhoDeCompras/            # Context (carrinho), Stack, FlatList
-│   │   └── Prática-GERAL/                # Exercícios (buscador, conversor, etc.)
+│   │   ├── Prática-GERAL/                # Exercícios (buscador, conversor, etc.)
+│   │   └── Produtivo/                    # App completo com TypeScript, Jest, Android/iOS, Expo/React Native configs
 │   └── AppEstudosRN/                     # App principal (fundamentos + breadth)
 │       │
+│       ├── .gitignore
+│       ├── android/
 │       ├── App.js                        # Entrada (NavigationContainer + Context)
 │       ├── package.json                  # Dependências e scripts
+│       ├── package-lock.json
 │       ├── app.json                      # Configuração Expo
 │       ├── index.js
+│       ├── metro.config.js
 │       ├── assets/                       # Ícones e imagens
 │       └── src/
 │           ├── Pages/
@@ -44,43 +62,6 @@ Repositório pessoal de estudo e referência com foco em **React Native**, além
 │               ├── Tab.js                # BottomTabs
 │               └── Stack.js              # Stack navigator
 ```
-
-## **DOCUMENTAÇÕES**
-
-Dentro de cada documento eu ja coloquei as documentações necessarias.
-
-- [React Native](https://reactnative.dev/) - Documentação oficial
-- [React Hooks](https://react.dev/reference/react) - Hooks do React
-- [Async/Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) - Programação assíncrona
-
-## EMULADORES E FERRAMENTAS REACT NATIVE
-
-Baixar [Node.js E JDK11](https://nodejs.org/)
-Baixar emulador e arquivos necessarios(guia de baixar e config no site do que for usar)
-Analisar métricas do código: `npx unlighthouse -site <url-site>`
-
-#### - Emulador([Android Studio](https://developer.android.com/studio)/[Xcode](https://developer.apple.com/xcode/)):
-
-- Criar novo projeto:
-  `npx @react-native-community/cli init Nomedoapp  (dar [cd pastadoprojeto])`
-
-- Instalar projeto (Com Emulador aberto) :
-  `npx react-native run-android` Mac: `npx react-native run-ios`
-
-- Abrir Metro(Se o app ja tiver instalado no emulador):
-  `npx react-native start`
-  
-#### - [Expo Go:](https://docs.expo.dev/)
-
-- Criar novo projeto:
-  `npx create-expo-app@latest nomedoapp -t` (-t projeto personalisado (blank)) (dar [cd pastadoprojeto])
-
-- Abrir Projeto:
-  `npx expo start`
-  limpar cache: `npx expo start -c`
-
-Após abrir o projeto, não se preocupe com a organização do código.  
-O foco aqui é ser **didático** e facilitar o aprendizado, não seguir padrões de produção.
 
 ### Tutorial ReadMe
 
