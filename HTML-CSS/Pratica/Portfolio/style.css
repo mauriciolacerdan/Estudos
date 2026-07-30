@@ -160,6 +160,7 @@ hr {
   border: 1px solid #27272a;
   height: 100px;
   width: 650px;
+  max-width: 100%;
   padding: 18px;
   display: flex;
   flex-direction: column;
@@ -171,6 +172,7 @@ hr {
   display: flex;
   justify-content: flex-start;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .skills {
@@ -182,6 +184,7 @@ hr {
   display: flex;
   align-items: center;
   gap: 1px;
+  white-space: nowrap;
 }
 
 .inf {
