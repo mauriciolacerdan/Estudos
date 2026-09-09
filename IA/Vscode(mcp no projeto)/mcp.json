@@ -1,0 +1,37 @@
+{
+  "servers": {
+    "io.github.upstash/context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "Authorization": "${input:Authorization}"
+      },
+      "gallery": "https://api.mcp.github.com",
+      "version": "4.0.4"
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp",
+	  "headers": {
+        "Authorization": "Colocar token gerado em https://github.com/settings/personal-access-tokens"
+      }
+    },
+    "figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp"
+    }
+  },
+  "inputs": [
+    {
+      "id": "Authorization",
+      "type": "promptString",
+      "description": "API key for authentication. Accepts \"Bearer <key>\" or the raw key.",
+      "password": true
+    }
+  ]
+}

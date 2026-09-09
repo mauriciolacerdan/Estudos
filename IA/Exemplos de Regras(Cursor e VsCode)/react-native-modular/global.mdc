@@ -1,0 +1,266 @@
+---
+alwaysApply: true
+---
+
+# App Router Best Practices:
+
+For pages and routes use Expo Router last version file-based routing for cleaner code organization .
+Keep client components focused on state management and UI interactions.
+Organize your project with clear directories src: /components, /hooks, /services, /lib, /styles, /const
+
+# Reusable and Isolated Components:
+
+Keep components small and focused on a single responsibility.
+Use props effectively and avoid excessive prop drilling by leveraging context or hooks where needed.
+No large, monolithic components.
+
+# Use Modular estructure
+
+- A Container Component (HomeContainer.tsx): responsible for business logic, data fetching (via hooks and services), state management, etc. It does not contain UI code directly — it only handles logic and passes data to the screen.
+- An optional custom hook (useHomeData.ts), to encapsulate the logic for fetching the user's levels and progress. This helps keep the container cleaner.
+- An optional service (homeService.ts), to centralize functions and API/Supabase calls. This way, if the data-fetching method changes in the future, the container doesn't need to be modified.
+- A Presenter Component (HomeScreen.tsx): responsible only for rendering the UI. It receives data and callbacks as props.
+
+- Review estructure:
+- Service: Only access data here (API calls, DB).
+- Hook: Manage state, fetching, and effects, using services.
+- Container: Handle orchestration, state, and pass everything as props.
+- Screen: Only render UI, never fetch/process data.
+
+## Estructure Service for (Use Modular):
+
+Responsibility:
+
+- Centralize API calls, Supabase/Prisma/database interactions, and business-related utility functions.
+- File naming: home-service.ts
+- Location: /src/services/home/home-service.ts
+
+- Example: // /src/services/home/home-service.ts
+
+```tsx
+export const homeService = {
+  async getUserLevels(userId: string) {
+    // Fetch from API or Supabase
+    // return await api.get(`/levels/${userId}`);
+  },
+  async getUserProgress(userId: string) {
+    // Fetch from API or Supabase
+  },
+};
+```
+
+## Estructure Hook Service for (Use Modular):
+
+Responsibility:
+
+- Encapsulate stateful business logic, especially data fetching, processing, and side-effects.
+- Keeps the Container component lean and easy to read.
+- File naming: use-home-data.ts
+- Location: /src/hooks/home/use-home-data.ts (or case not ref for screen /src/hooks/use-custom-hook.ts)
+
+- Example: // /src/hooks/home/use-home-data.ts
+
+```tsx
+import { useState, useEffect } from "react";
+import { homeService } from "./home-service";
+
+export function useHomeData(userId: string) {
+  const [levels, setLevels] = useState([]);
+  const [progress, setProgress] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      const levelsData = await homeService.getUserLevels(userId);
+      const progressData = await homeService.getUserProgress(userId);
+      setLevels(levelsData);
+      setProgress(progressData);
+      setLoading(false);
+    }
+    fetchData();
+  }, [userId]);
+
+  return { levels, progress, loading };
+}
+```
+
+## Estructure Container for (Use Modular):
+
+Responsibility:
+
+- Handles business logic, orchestration, and state composition.
+- Uses hooks to get data, process logic, handle callbacks, and passes everything as props to the Presenter (Screen).
+- Never render UI directly (no JSX except calling the Presenter).
+- File naming: home-container.tsx
+- Location: /src/screens/home/home-container.tsx
+
+- Example:
+
+```tsx
+import { HomeScreen } from '.../screens/home/home-screen';
+import { useHomeData } from '.../hooks/home/use-home-data';
+
+// App Router automatically passes params if needed
+export default function Home() {
+  const { levels, progress, loading } = useHomeData();
+
+  return (
+    <HomeScreen
+      levels={levels}
+      progress={progress}
+      loading={loading}
+      // Any other props/callbacks
+    />
+  );
+```
+
+## Estructure Presenter Screen for (Use Modular):
+
+Responsibility:
+
+- Purely presentational. Receives data and callback props, renders UI components, and handles user interaction callbacks.
+- Should not fetch data or contain business logic.
+- File naming: home-screen.tsx
+- Location: /src/screens/home/home-screen.tsx
+
+- Example:
+
+```tsx
+export function HomeScreen({ levels, progress, loading }: Props) {
+  if (loading) return <ActivityIndicator />;
+  return (
+    <View>
+      <Text>Nível atual: {progress?.currentLevel}</Text>
+      {/* Render other UI with levels, etc */}
+    </View>
+  );
+}
+```
+
+---
+
+## Rule: Screen Structure and Component Organization
+
+**Whenever you create a new screen, always follow this structure:**
+
+- All screens must be created inside the `/src/screens` directory.
+- Each screen should have its own subfolder inside `/screens`, named after the screen (e.g., `home`, `profile`, etc).
+- Inside each screen folder:
+  - The main file should be named `index.tsx`. This is the entry point of the screen.
+  - There must be a `_components` folder inside each screen folder. All components that are specific to and only used by that screen must be placed in this `_components` folder.
+
+**Example:**
+
+```
+├─ screens/
+│ ├─ home/
+│ │ ├─ index.tsx
+│ │ └─ _components/
+│ │ ├── welcome-message.tsx
+│ │ └── user-stats.tsx
+│ └─ profile/
+│ ├─ index.tsx
+│ └─ _components/
+│ ├── avatar-uploader.tsx
+│ └── profile-details.tsx
+```
+
+### Best Practices
+
+- Only create or add components to the `_components` folder if they are **unique to that screen**.
+- If a component will be reused in multiple screens, add it to `src/components/` instead (the global/shared components folder).
+- Keep your screens folder focused: only screens (and their private components) should exist here, not utility files or hooks.
+- Always create the `_components` folder even if it's initially empty, to keep the structure consistent and ready for future expansion.
+
+### File Naming Convention
+
+- **Always use kebab-case for all files inside any `_components` folder.**
+- For example: `welcome-message.tsx`, `user-card.tsx`, `profile-details.tsx`.
+- Avoid PascalCase or camelCase for these files.
+
+### Why this structure?
+
+- This approach keeps your code **modular, organized, and scalable**.
+- It is easier to maintain, refactor, and onboard new developers.
+- Using kebab-case for file names ensures consistency and prevents case-related import errors, especially in different OS environments.
+
+# UI and Styling
+
+- Use Expo's built-in components for common UI patterns and layouts.
+- Implement responsive design with Flexbox and Expo's useWindowDimensions for screen size adjustments, Dimensions API React Native.
+- Use StyleSheet for component styling.
+- Implement dark mode support using Expo's useColorScheme.
+- Ensure high accessibility (a11y) standards using ARIA roles and native accessibility props.
+- Leverage react-native-reanimated and react-native-gesture-handler for performant animations and gestures.
+
+# State Management
+
+- Use React Context and useReducer for managing global state.
+- Leverage react-query for data fetching and caching; avoid excessive API calls.
+- For complex state management, consider using Zustand.
+- Handle URL search parameters using libraries like expo-linking.
+
+# TypeScript First:
+
+Use TypeScript to ensure type safety across the application.
+Define strict types for props, state, and API responses.
+
+# Clean Code Principles:
+
+Use meaningful variable names and avoid magic numbers.
+Prefer functional components and hooks over class components.
+
+## Mobile-first, Responsiveness & UX Guidelines
+
+- **Platform:**  
+  Always remember you are building a mobile app with React Native + Expo, targeting both Android and iOS.
+- **Responsiveness:**  
+  Design all screens and components to be fully responsive. Use `flex` layouts, `Dimensions`, and relative units (percentages, min/max width/height) instead of fixed pixel values.
+- **Cross-platform UX:**  
+  Always consider platform differences (Android vs. iOS) in UI, navigation, keyboard, safe areas, and status bar.  
+  Use `Platform.OS` or `Platform.select()` when platform-specific tweaks are needed.
+- **Touch targets & accessibility:**  
+  Ensure all interactive elements (buttons, inputs, etc.) are large enough for comfortable touch (minimum 44x44px), and use accessibility labels and roles.
+- **Safe areas:**  
+  Use `SafeAreaView` or equivalent to respect notches and navigation bars, especially on iOS devices.
+- **Testing:**  
+  Test all features and layouts on both Android and iOS devices or emulators, including different screen sizes and orientations.
+- **Navigation & Feedback:**  
+  Integrate with Expo Router (App Router) for smooth, native-like navigation.  
+  Always provide clear feedback for loading, errors, and user actions (e.g., `ActivityIndicator`, toasts, or snackbars).
+- **Performance:**  
+  Optimize lists, images, and components for smooth performance on a variety of devices. Avoid unnecessary re-renders and large images.
+- **Consistency:**  
+  Follow design system and UI consistency across all screens and components.
+
+**Always prioritize:**
+
+1. Responsiveness and adaptability for all mobile screens.
+2. Excellent user experience (UX) on both Android and iOS.
+3. Accessibility and usability for all users.
+
+# Specific Naming Patterns
+
+- Prefix event handlers with 'handle': handleClick, handleSubmit
+- Prefix boolean variables with verbs: isLoading, hasError, canSubmit
+- Use complete words over abbreviations except for:
+- err (error)
+- req (request)
+- res (response)
+- props (properties)
+- ref (reference)
+
+# Input Validation and Sanitization:
+
+Use Zod or Yup for schema validation to prevent bad data.
+Sanitize all inputs to prevent XSS and SQL injection.
+
+# Testing Strategy:
+
+Use Jest and React Testing Library for unit and integration tests.
+Aim for high test coverage on critical components and services.
+
+# Stay Up-to-Date:
+
+Keep dependencies updated and stay aware of breaking changes in major libraries like Next.js, React, and Prisma. If a specific version is provided for a library, always use the given version to ensure compatibility and avoid unexpected behavior.

@@ -18,6 +18,12 @@ Substitua os arquivos das pastas `mipmap-*` pelos novos ícones, mantendo os mes
 
 > Caso utilize ícones adaptativos, verifique também os arquivos da pasta `mipmap-anydpi-v26`.
 > Após alterar o nome ou o ícone, gere uma nova build do aplicativo para aplicar as mudanças.
+2 icones de cada proporção com e sem bordas arredondadas
+72 x 72
+48 x 48
+96 x 96
+144 x 144
+192 x 192
 
 ---
 

@@ -1,6 +1,7 @@
 
 # ========== GIT-GITHUB ==========
-
+**Quando for dar commit é bom seguir o padrão: `https://github.com/iuricode/padroes-de-commits`**
+A IA pode escrever os commits no padrão correto, basta configurar usando as skills
 
 ## 1) Configuração inicial
 git config --global user.name "Maurício"
