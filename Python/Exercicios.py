@@ -349,3 +349,127 @@ palavra = input("Digite uma palavra: ")
 for i in range(len(palavra) - 1, -1, -1):
     print(palavra[i], end="")
 """
+
+
+# ============ Exercícios Avaliativos ============
+
+# 1)
+numero1 = int(input("Digite o primeiro número: "))
+numero2 = int(input("Digite o segundo número: "))
+soma = numero1 + numero2
+if soma > 10:
+    print("Soma maior que 10")
+else:
+    print("Soma menor ou igual a 10")
+
+# 2)
+nome = input("Digite seu primeiro nome: ")
+quantidade = len(nome)  # len() Retorna a quantidade de caracteres.
+if quantidade < 3:
+    print("Nome inválido, muito curto")
+else:
+    print("Bem-vindo,", nome)
+
+# 3)
+nota = float(input("Digite a nota final: "))
+if nota >= 6.0:
+    print("Aprovado")
+else:
+    print("Reprovado")
+
+# 4)
+for numero in range(1, 11):
+    print(numero)
+
+# 5)
+dia = int(input("Digite um número de 1 a 7: "))
+match dia:
+    case 1:
+        print("Domingo")
+    case 2:
+        print("Segunda-feira")
+    case 3:
+        print("Terça-feira")
+    case 4:
+        print("Quarta-feira")
+    case 5:
+        print("Quinta-feira")
+    case 6:
+        print("Sexta-feira")
+    case 7:
+        print("Sábado")
+    case _:
+        print("Dia inválido")
+
+# 6)
+texto = input("Digite uma palavra ou frase: ")
+contador = 0
+for letra in texto:
+    if letra in "aeiouAEIOU":
+        contador += 1
+print("Quantidade de vogais:", contador)
+
+# 7)
+numero1 = float(input("Digite o primeiro número: "))
+numero2 = float(input("Digite o segundo número: "))
+operacao = input("Digite a operação (+, -, *, /): ")
+match operacao:
+    case "+":
+        resultado = numero1 + numero2
+        print("Resultado:", resultado)
+    case "-":
+        resultado = numero1 - numero2
+        print("Resultado:", resultado)
+    case "*":
+        resultado = numero1 * numero2
+        print("Resultado:", resultado)
+    case "/":
+        resultado = numero1 / numero2
+        print("Resultado:", resultado)
+    case _:
+        print("Operação inválida")
+
+# 8)
+n = int(input("Digite um número inteiro positivo: "))
+for numero in range(1, n + 1):
+    if numero % 2 == 0:
+        print(numero)
+
+# 9)
+soma_notas = 0
+maior_nota = -1
+nome_destaque = ""
+for i in range(5):
+    nome = input("Digite o nome do aluno: ")
+    nota = float(input("Digite a nota final: "))
+    soma_notas = soma_notas + nota
+    if nota > maior_nota:
+        maior_nota = nota
+        nome_destaque = nome
+media = soma_notas / 5
+print("Média da turma:", media)
+print("Aluno destaque:", nome_destaque)
+print("Quantidade de caracteres:", len(nome_destaque))
+
+# 10)
+while True:
+    print("1. Tamanho do Texto")
+    print("2. Par ou Ímpar")
+    print("3. Sair")
+    opcao = int(input("Escolha uma opção: "))
+    match opcao:
+        case 1:
+            texto = input("Digite um texto: ")
+            print("Quantidade de caracteres:", len(texto))
+        case 2:
+            numero = int(input("Digite um número inteiro: "))
+            if numero % 2 == 0:
+                print("Par")
+            else:
+                print("Ímpar")
+        case 3:
+            print("Programa encerrado")
+            break
+        case _:
+            print("Opção inválida")
+
