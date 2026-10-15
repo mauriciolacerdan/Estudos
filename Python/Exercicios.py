@@ -1,4 +1,4 @@
-# Lista de Exercícios 1
+# ============ Lista de Exercícios ============
 
 """
 # Exercicio 1
@@ -352,7 +352,7 @@ for i in range(len(palavra) - 1, -1, -1):
 
 
 # ============ Exercícios Avaliativos ============
-
+"""
 # 1)
 numero1 = int(input("Digite o primeiro número: "))
 numero2 = int(input("Digite o segundo número: "))
@@ -472,4 +472,91 @@ while True:
             break
         case _:
             print("Opção inválida")
+"""
 
+
+# ============ Prova 1 ============
+"""
+# 1)
+Questão 1 - Escrever um programa que receba vários números inteiros no teclado, até que seja digitado o valor 0. No final, o programa deverá imprimir a soma e média dos números múltiplos de 3. Além disso, deverá informar o maior e o menor múltiplo de 3. Se for digitado o valor 0, o programa será encerrado.
+soma = 0
+contador = 0
+maior = None
+menor = None
+while True:
+    numero = int(input("Digite um número (0 para encerrar): "))
+    if numero == 0:
+        break
+    if numero % 3 == 0:
+        soma += numero
+        contador += 1
+        if maior is None or numero > maior:
+            maior = numero
+        if menor is None or numero < menor:
+            menor = numero
+print("Soma dos múltiplos de 3:", soma)
+print("Quantidade de múltiplos de 3:", contador)
+if contador > 0:
+    media = soma / contador
+    print("Média dos múltiplos de 3:", media)
+    print("Maior múltiplo de 3:", maior)
+    print("Menor múltiplo de 3:", menor)
+else:
+    print("Nenhum múltiplo de 3 foi digitado.")
+
+# 2)
+Questão 2 - Desenvolva um algoritmo que apresente o seguinte menu numérico de uma cafeteria para o usuário: 1 - Expresso (R$ 5.00) 2 - Capuccino (R$ 7.50) 3 - Macchiato (R$ 8.00) O programa deve pedir que o usuário digite a opção desejada (1, 2 ou 3) e, em seguida, pergunte qual o valor em dinheiro ele está entregando para o pagamento (número decimal). O programa deve:
+• Identificar a opção escolhida, calcular o troco (valor entregue menos o valor da bebida) e exibilo.
+• Se o valor entregue pelo usuário for menor que o preço da bebida, exibir a mensagem Saldo Insuficiente.
+• Caso o usuário digite uma opção de bebida fora do menu (ex: 4), o bloco padrão (case _) deve exibir a mensagem Opção de bebida inválida.
+print("===== MENU DA CAFETERIA =====")
+print("1 - Expresso (R$ 5.00)")
+print("2 - Capuccino (R$ 7.50)")
+print("3 - Macchiato (R$ 8.00)")
+opcao = int(input("Escolha sua bebida: "))
+match opcao:
+    case 1:
+        preco = 5.00
+    case 2:
+        preco = 7.50
+    case 3:
+        preco = 8.00
+    case _:
+        preco = 0
+        print("Opção de bebida inválida.")
+if opcao in [1, 2, 3]:
+    pagamento = float(input("Quanto você vai pagar? R$ "))
+    if pagamento < preco:
+        print("Saldo Insuficiente")
+    else:
+        troco = pagamento - preco
+        print("Troco: R$", round(troco, 2))
+
+# 3)
+Questão 3 - Crie um programa que solicite ao usuário que digite uma frase qualquer. O algoritmo deve percorrer a frase caractere por caractere e realizar duas contagens simultâneas:
+• Quantos espaços em branco (" ") a frase possui.
+• Quantas vezes a letra "A" (estritamente maiúscula) foi digitada.
+• Ao término do laço, o programa deve exibir o total contabilizado de espaços em branco e o total de letras "A" maiúsculas.
+frase = input("Digite uma frase: ")
+espacos = 0
+letras_A = 0
+for caractere in frase:
+    if caractere == " ":
+        espacos += 1
+    if caractere == "A":
+        letras_A += 1
+print("Quantidade de espaços:", espacos)
+print("Quantidade de letras A maiúsculas:", letras_A)
+
+# 4)
+Questão 4 - Crie um algoritmo que peça para o usuário cadastrar uma senha. Continue pedindo a senha até que o usuário digite uma que tenha, no mínimo, 8 caracteres, sendo que um deles precisa ser um dos seguintes algoritmos especiais: _, -, @ ou. Quando as condições forem atendidas, mostre uma mensagem de sucesso na tela.
+while True:
+    senha = input("Cadastre uma senha: ")
+    if len(senha) >= 8 and any(caractere in "_-@#" for caractere in senha):
+        print("Senha cadastrada com sucesso!")
+        break
+    else:
+        print(
+            "Senha inválida. Use pelo menos 8 caracteres e um símbolo (_, -, @ ou #)."
+        )
+"""

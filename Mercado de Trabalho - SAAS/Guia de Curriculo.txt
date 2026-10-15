@@ -63,3 +63,94 @@ https://sujeitoprogramador.com/curriculo-ats-programador/
 - Se tiver mais da metade dos requisitos, pode aplicar.
 - RH costuma listar mais do que é realmente necessário.
 
+
+## 2.1. COMPATIBILIDADE SEMÂNTICA E TRIAGEM POR IA (ATS/GUPY)
+
+- A IA pode comparar as informações do perfil com os requisitos e as responsabilidades descritos na vaga.
+- O objetivo é demonstrar compatibilidade real entre minhas experiências, habilidades, formação e requisitos da oportunidade.
+- Adaptar o currículo e o perfil da plataforma para cada vaga, destacando as competências relevantes.
+- Utilizar termos técnicos presentes na descrição da vaga quando corresponderem aos meus conhecimentos e experiências.
+- Não repetir palavras-chave artificialmente. Explicar como utilizei cada tecnologia ou competência.
+- Manter o perfil da Gupy completo, consistente e atualizado, especialmente os campos de experiências e habilidades.
+- Não deixar informações relevantes de fora por depender apenas do PDF anexado. Conferir também os campos preenchidos diretamente na plataforma.
+- Responder com atenção às perguntas eliminatórias e respeitar os requisitos obrigatórios da vaga.
+- A IA auxilia na organização e priorização dos candidatos; não garante contratação nem necessariamente elimina candidatos automaticamente.
+- Não presumir pesos fixos para experiências, habilidades ou fit cultural. Os critérios e as prioridades podem variar conforme a vaga e a empresa.
+
+## 2.2. MÉTODO CAR PARA EXPERIÊNCIAS E PROJETOS
+
+Utilizar o método CAR para descrever experiências profissionais, projetos pessoais e realizações relevantes.
+
+**C — Contexto**
+- Qual era o problema, a necessidade ou o objetivo?
+- Em qual empresa, projeto ou situação ocorreu?
+- Quais eram as limitações ou os desafios?
+
+**A — Ação**
+- O que eu fiz concretamente para resolver o problema?
+- Quais tecnologias, ferramentas e métodos utilizei?
+- Quais responsabilidades assumi e quais decisões tomei?
+- Utilizar verbos de ação: desenvolvi, implementei, integrei, automatizei, otimizei, corrigi, analisei e publiquei.
+
+**R — Resultado**
+- Qual foi o impacto da ação?
+- O que foi entregue, melhorado ou resolvido?
+- Quando houver dados confiáveis, quantificar resultados: redução de tempo, melhoria de desempenho, número de funcionalidades, usuários atendidos ou erros corrigidos.
+- Não inventar métricas. Quando não houver resultados financeiros ou percentuais, demonstrar entregas concretas e benefícios verificáveis.
+
+**Exemplo para programação:**
+
+Descrição genérica:
+- Desenvolvi um aplicativo usando React Native e Firebase.
+
+Descrição melhorada:
+- Desenvolvi um aplicativo mobile com React Native e TypeScript, implementando autenticação de usuários e integração com Firebase para persistência de dados, organizando as funcionalidades em componentes reutilizáveis.
+
+O exemplo demonstra tecnologias, ações e entregas concretas, sem inventar resultados quantitativos.
+
+## 2.3. ADAPTAÇÃO DO CURRÍCULO COM IA
+
+Antes de cada candidatura:
+
+1. Identificar os requisitos obrigatórios, as competências desejáveis e as tecnologias citadas na vaga.
+2. Comparar os requisitos com minhas experiências, projetos, habilidades e conhecimentos reais.
+3. Ajustar o resumo profissional, as habilidades e as descrições das experiências mais relevantes.
+4. Priorizar as experiências e os projetos que demonstram maior aderência à oportunidade.
+5. Revisar o texto para garantir clareza, precisão técnica e consistência.
+6. Conferir se o currículo e o perfil preenchido na plataforma apresentam informações compatíveis.
+7. Validar todas as alterações feitas pela IA antes de utilizá-las.
+
+**Prompt para revisar experiências com IA:**
+
+Reescreva esta experiência para um currículo de desenvolvedor de software, com foco na vaga descrita abaixo. Estruture a descrição segundo o método CAR (Contexto, Ação e Resultado). Utilize verbos de ação, destaque as responsabilidades reais, as tecnologias utilizadas e as competências relevantes para a vaga. Priorize resultados verificáveis e entregas concretas. Incorpore naturalmente os termos técnicos relevantes da descrição da vaga, sem repetição artificial de palavras-chave. Não invente métricas, experiências, conhecimentos ou resultados. Se faltarem informações importantes, indique o que preciso esclarecer em vez de presumir dados.
+
+Vaga-alvo:
+[Colar descrição da vaga]
+
+Experiência ou projeto:
+[Colar descrição atual]
+
+## 7. ESTRATÉGIA DE CANDIDATURA E ENTREVISTA
+
+- Não avaliar o sucesso apenas pela capacidade de passar pelo ATS. O objetivo é avançar até a entrevista e demonstrar competência técnica.
+- Pesquisar a empresa, seus produtos, sua atuação e os requisitos específicos da posição antes de se candidatar.
+- Manter o perfil atualizado e avaliar a participação em bancos de talentos quando fizer sentido.
+- Preparar exemplos de experiências e projetos usando o método CAR para responder às perguntas da entrevista.
+- Estudar os requisitos técnicos da vaga e preparar explicações sobre decisões de implementação, problemas encontrados e soluções adotadas.
+- Avaliar também a empresa: responsabilidades, liderança, expectativas, possibilidade de crescimento, condições de trabalho e compatibilidade com meus objetivos.
+- Não presumir que toda vaga publicada está efetivamente em contratação. Verificar a atualidade do anúncio e, quando possível, a página oficial de carreiras.
+- Não existe método que garanta aprovação. O objetivo é aumentar a aderência real e melhorar a apresentação das qualificações.
+
+## 8. CHECKLIST ANTES DE CADA CANDIDATURA
+
+- [ ] Li a descrição completa da vaga.
+- [ ] Identifiquei requisitos obrigatórios e desejáveis.
+- [ ] Tenho compatibilidade suficiente para justificar a candidatura.
+- [ ] Adaptei o currículo à oportunidade.
+- [ ] Destaquei as tecnologias e competências relevantes que realmente domino.
+- [ ] Descrevi experiências e projetos com ações e entregas concretas.
+- [ ] Preenchi e atualizei as informações relevantes no perfil da plataforma.
+- [ ] Revisei as perguntas eliminatórias e as informações solicitadas.
+- [ ] Conferi os links do GitHub, portfólio e LinkedIn.
+- [ ] Revisei o currículo final e verifiquei se não existem informações inventadas.
+- [ ] Registrei a candidatura para acompanhar o processo seletivo.
