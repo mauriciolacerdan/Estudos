@@ -1,0 +1,1 @@
+# Esse é um app Basico apenas para adicionar algumas anotações e conhecimento sobre meu estudo de typescript dentro do react Native
