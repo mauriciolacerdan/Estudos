@@ -22,8 +22,10 @@ i == j: diagonal principal
 */
 
 // ===== ASYNC / AWAIT =====
+// Função marcada com async
 async function buscarDados() {
   try {
+    // await pausa a execução até a requisição retornar a resposta
     let resposta = await fetch("url");
     let dados = await resposta.json();
     console.log(dados);

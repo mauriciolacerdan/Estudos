@@ -29,10 +29,10 @@ Analisar métricas do código: `npx unlighthouse -site <url-site>`
 - Abrir Metro(Se o app ja tiver instalado no emulador):
   `npx react-native start`
 
-#### - [Expo Go:](https://docs.expo.dev/)
+#### - [Expo:](https://docs.expo.dev/)
 
 - Criar novo projeto:
-  `npx create-expo-app@latest nomedoapp -t` (-t projeto personalisado (blank)) (dar [cd pastadoprojeto])
+  `npx create-expo-app@latest nomedoapp -t` (-t projeto personalisado (blank ou blank com TypeScript)) (dar [cd pastadoprojeto])
 
 - Abrir Projeto:
   `npx expo start`
