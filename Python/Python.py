@@ -16,7 +16,7 @@ print("a", end="")  # end="" imprime sem pular de linha
 
 # ========== OPERADORES
 # Comparação: == igual | != diferente | > < >= <=   ( = atribui, == compara )
-# Aritméticos: + - * / (decimal) | // (divisão inteira) | % (resto) | ** (potência)
+# Aritméticos: + - * / (decimal) | // (divisão inteira) | % (resto) | ** (potência) | math.sqrt (Raiz quadrada importada)
 # Lógicos (pode combinar):
 #   and → todas verdadeiras | or → pelo menos uma | not → inverte
 # CUIDADO: and/or misturados exigem parênteses.
@@ -132,7 +132,12 @@ numeros.count(5)  # 2 → quantas vezes aparece
 numeros.sort()  # crescente (altera a própria lista)
 numeros.sort(reverse=True)  # decrescente
 numeros.reverse()  # inverte a ordem
-len(numeros), min(numeros), max(numeros), sum(numeros) # Retorna numero de intens em uma lista
+(
+    len(numeros),
+    min(numeros),
+    max(numeros),
+    sum(numeros),
+)  # Retorna numero de intens em uma lista
 copia = numeros.copy()  # cópia real (copia = numeros só aponta para a mesma lista)
 
 # ========== FATIAMENTO
@@ -162,30 +167,112 @@ for n in notas:
 # ============================================================
 #       5. FUNÇÕES  [PRIORIDADE]
 # ============================================================
-
-"""
-Estrutura de uma função
-- declaração
-- chamada
- 
-Sintaxe:
-def nome_da_funcao(<parâmetros>):  # Declaração
-    comandos
-    comandos
-    comandos
-    ...
-    return <valores de retorno>
- 
-nome_da_funcao(valor passado)      # Chamada
-"""
-
-# def nomedafunção(paramtro a ser passado)   (oque passa dentro de uma função nao consegue ser ultilizada fora dela como variaveis)
-def somavalores(valor1=5, valor2=7): # o =5, =7 serve para quando nao receber nenhum valor ele usa esses padroes ja definidos (sempre deixar o valor padrao como o da direita nao deixar apenas o da esquerda)
-    return int(valor1) + int(valor2)
-# Programa em baixo da função
-val1 = input("Digite o primeiro valor: ")
-val2 = input("Digite o segundo valor: ")
-#soma = somavalores(val1, val2)  # Chamando funçao pelo nome e passando os parametros para ela
-print("A soma dos valores é: ", somavalores(val1, val2))
+# Declaração (def) → só define. Chamada → executa.
+# def nome(parâmetros):
+#     comandos
+#     return valor
+# nome(argumentos)   ← chamada
 
 
+# ========== PARÂMETRO E RETURN
+def soma(a, b):  # a, b = parâmetros
+    return a + b  # devolve e ENCERRA a função
+resultado = soma(3, 4)  # 3, 4 = argumentos; guarde ou imprima o retorno
+print(resultado)  # 7
+# print() só mostra | return DEVOLVE o valor para quem chamou
+# Sem return, a função devolve None.
+
+
+# ========== VALOR PADRÃO
+# Parâmetros com padrão ficam sempre à DIREITA dos sem padrão.
+def potencia(base, exp=2):
+    return base**exp
+potencia(3)  # 9 (usa exp=2)
+potencia(3, 3)  # 27
+
+# ========== ESCOPO
+# Variável criada DENTRO da função não existe fora dela.
+# O que a função precisa vem por parâmetro; o que devolve sai por return.
+
+
+# ========== RETORNAR VÁRIOS VALORES
+def menor_maior(lista):
+    return min(lista), max(lista)  # devolve uma tupla
+menor, maior = menor_maior([4, 9, 2])  # desempacota
+
+# ========== FUNÇÃO COM LISTA
+# A lista chega por referência: alterar dentro (append, remove) altera a original.
+def media_lista(lista):
+    return sum(lista) / len(lista)
+def pares(lista):  # devolve uma NOVA lista
+    novos = []
+    for n in lista:
+        if n % 2 == 0:
+            novos.append(n)
+    return novos
+
+# ========== BOOLEANA (retorna True/False)
+def eh_par(n):
+    return n % 2 == 0
+if eh_par(4):  # usa o retorno direto no if
+    print("Par")
+
+
+# ========== PADRÃO DE PROVA (funções + programa principal)
+# 1) defina todas as funções  2) programa principal embaixo lê, chama e imprime.
+def conta_vogais(texto):
+    cont = 0
+    for letra in texto:
+        if letra in "aeiouAEIOU":
+            cont += 1
+    return cont
+print("Vogais:", conta_vogais("Banana"))  # 3
+
+
+# ========== ITERATIVA: FATORIAL (for)
+# 3! = 1 * 2 * 3 = 6
+def fat_iter(n):
+    resultado = 1
+    for i in range(1, n + 1):
+        resultado = resultado * i
+    return resultado
+print("Fatorial de 3:", fat_iter(3))
+
+
+# ============================================================
+#       6. RECURSÃO
+# ============================================================
+# Função que chama a si mesma. Dois pilares:
+#   1) CASO BASE → condição simples, resolve direto e para
+#   2) PASSO RECURSIVO → chama a si mesma com argumento MENOR (aproxima do caso base)
+# Sem caso base (ou sem se aproximar dele) → RecursionError.
+# Chamadas empilham (pilha) e depois resolvem de baixo para cima.
+
+
+# ========== FATORIAL RECURSIVO
+# n! = n * (n-1)!   | base: 0! = 1! = 1
+def fat_rec(n):
+    if n <= 1:  # caso base
+        return 1
+    return n * fat_rec(n - 1)  # passo recursivo
+print("Fatorial de 3:", fat_rec(3))  # 3 * 2 * 1 = 6
+
+
+# ========== SOMATÓRIO RECURSIVO
+# somarec(3) = 3 + 2 + 1 = 6   | base: n == 0 → 0 (soma vazia)
+def somarec(n):
+    if n == 0:
+        return 0
+    return n + somarec(n - 1)
+print("Somatório de 4:", somarec(4))  # 10
+
+
+# ========== INVERTER TEXTO RECURSIVO
+# inverte o resto e coloca a 1ª letra no final   | base: vazio ou 1 letra
+def inverter(texto):
+    if len(texto) <= 1:
+        return texto
+    return inverter(texto[1:]) + texto[0]
+print(inverter("abc"))  # cba
+# Quando usar: problema se divide em subproblemas iguais (busca binária, ordenação, árvores/pastas).
+# Evitar: operação simples de contagem → for/while gasta menos memória.

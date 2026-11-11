@@ -477,3 +477,169 @@ while True:
         case _:
             print("Opção inválida.")
 """
+
+
+# ============================================================
+#       F. Praticando Recursividade
+# ============================================================
+
+"""
+Segue uma lista de exerícios para consolidar o conhecimento apresentado.
+Essa lista vai valer 1,0 ponto.
+A atividade deve ser feita individualmente, manuscrita, digitalizada e postada na plataforma, no formato .PDF
+A postagem deverá ser realizada até o dia 09/11.
+O não cumprimento de qualquer uma das regras resultará na penalidade da nota.
+Lista de Exercícios de Funções:
+"""
+
+"""
+1. Soma dos Números até N
+Enunciado: Crie uma função recursiva chamada soma_ate que receba um número inteiro positivo e retorne a soma de todos os números de 1 até n.
+Exemplo de chamada: soma_ate(5)
+Exemplo de saída: 15 (pois 5 + 4 + 3 + 2 + 1 = 15)
+"""
+"""
+def soma_ate(numero):
+    if numero == 0:
+        return 0
+    return numero + soma_ate(numero - 1)
+numero = int(input("Digite um número: "))
+print("Soma de 1 até", numero, "=", soma_ate(numero))
+"""
+
+"""
+2. Contagem Regressiva
+Enunciado: Escreva uma função recursiva chamada contagem_regressivaNão que receba um número e o imprima na tela. Em seguida, a função deve chamar a si mesma para imprimir o número anterior, até chegar a zero. Quando chegar a zero, imprima "Fim!".
+Exemplo de chamada: contagem_regressiva(3)
+Exemplo de saída: ```text 3 2 1 0 Fim!
+"""
+"""
+def contagem_regressiva(numero):
+    if numero == 0:
+        print(0)
+        print("Fim!")
+    else:
+        print(numero)
+        contagem_regressiva(numero - 1)
+contagem_regressiva(3)
+"""
+
+"""
+3. Multiplicação por Somas Sucessivas
+Enunciado: Escreva uma função recursiva chamada multiplicar(a, b) que retorne o resultado da multiplicação de a por b usando apenas o operador de soma (+). Lembre-se que multiplicar é somar o mesmo número repetidas vezes.
+Exemplo de chamada: multiplicar(4, 3)
+Exemplo de saída: 12 (pois 4 + 4 + 4 = 12)
+"""
+"""
+def multiplicar(a, b):
+    if b == 0:
+        return 0
+    return a + multiplicar(a, b - 1)
+print(multiplicar(4, 3))
+"""
+
+"""
+4. Potência de um Número
+Enunciado: Crie uma função recursiva chamada potencia(base, expoente) que calcule o resultado de uma base elevada a um expoente. Lembre-se do caso base: qualquer número elevado a zero é 1.
+Exemplo de chamada: potencia(2, 4)
+Exemplo de saída: 16
+"""
+"""
+def potencia(base, expoente):
+    if expoente == 0:
+        return 1
+    return base * potencia(base, expoente - 1)
+exp = potencia(2, 4)
+print(exp)
+"""
+
+"""
+5. Soma dos Elementos de uma Lista
+Enunciado: Escreva uma função recursiva chamada soma_lista(lista) que receba uma lista de números e retorne a soma de todos os seus elementos. Lembre-se que você pode separar a lista no primeiro elemento (lista[0]) e no restante da lista (lista[1:]).
+Exemplo de chamada: soma_lista([2, 4, 6, 8])
+Exemplo de saída: 20
+"""
+"""
+def soma_lista(lista):
+    if lista == []:
+        return 0
+    return lista[0] + soma_lista(lista[1:])
+print(soma_lista([2, 4, 6, 8]))
+"""
+
+"""
+6. Contar Elementos de uma Lista
+Enunciado: Crie uma função recursiva chamada tamanho_lista(lista) que calcule quantos elementos existem dentro de uma lista, sem utilizar a função nativa len(). O caso base é quando a lista fica vazia (tamanho 0).
+Exemplo de chamada: tamanho_lista(['a', 'b', 'c', 'd'])
+Exemplo de saída: 4
+"""
+"""
+def tamanho_lista(lista):
+    if lista == []:
+        return 0
+    return 1 + tamanho_lista(lista[1:])
+print(tamanho_lista(["a", "b", "c", "d"]))
+"""
+
+"""
+7. Contar Ocorrências de uma Letra
+Enunciado: Escreva uma função recursiva chamada contar_letra(texto, letra) que receba uma string e uma letra específica. A função deve retornar quantas vezes aquela letra aparece no texto.
+Exemplo de chamada: contar_letra("banana", "a")
+Exemplo de saída: 3
+"""
+"""
+def contar_letra(texto, letra):
+    if texto == "":
+        return 0
+    if texto[0] == letra:
+        return 1 + contar_letra(texto[1:], letra)
+    return contar_letra(texto[1:], letra)
+print(contar_letra("banana", "a"))
+"""
+
+"""
+8. Procurar um Número na Lista
+Enunciado: Crie uma função recursiva chamada existe_na_lista(lista, alvo) que retorne True se o número alvo estiver dentro da lista, ou False se não estiver. A função deve verificar o primeiro elemento e passar o restante da lista para a próxima chamada.
+Exemplo de chamada: existe_na_lista([10, 20, 30], 20)
+Exemplo de saída: True
+"""
+"""
+def existe_na_lista(lista, alvo):
+    if lista == []:
+        return False
+    if lista[0] == alvo:
+        return True
+    return existe_na_lista(lista[1:], alvo)
+print(existe_na_lista([10, 20, 30], 20))
+"""
+
+"""
+9. Verificar se é Palíndromo
+Enunciado: Um palíndromo é uma palavra que se lê da mesma forma de trás para frente (ex: "arara"). Escreva uma função recursiva eh_palindromo(palavra) que verifique se a primeira letra é igual à última. Se for, ela deve continuar verificando o miolo da palavra. Retorne True ou False.
+Exemplo de chamada: eh_palindromo("radar")
+Exemplo de saída: True
+"""
+"""
+def eh_palindromo(palavra):
+    if len(palavra) <= 1:
+        return True
+    if palavra[0] != palavra[-1]:
+        return False
+    return eh_palindromo(palavra[1:-1])
+print(eh_palindromo("radar"))
+"""
+
+"""
+10. Imprimir Lista de Trás para Frente
+Enunciado: Crie uma função recursiva chamada imprimir_invertido(lista) que receba uma lista e imprima seus elementos de trás para frente, um por linha. O segredo é fazer a chamada recursiva antes do comando de impressão (print).
+Exemplo de chamada: imprimir_invertido([1, 2, 3])
+Exemplo de saída: 3, 2, 1
+"""
+"""
+def imprimir_invertido(lista):
+    if lista == []:
+        return
+    imprimir_invertido(lista[1:])
+    print(lista[0])
+imprimir_invertido([1, 2, 3])
+"""
